@@ -1,0 +1,201 @@
+{% load  static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{% block title %}SmartBallot{% endblock %}</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static "assets/img/favicon.png" %}" rel="icon">
+  <link href="{% static "assets/img/apple-touch-icon.png" %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static "assets/vendor/bootstrap/css/bootstrap.min.css"%}" rel="stylesheet">
+  <link href="{% static "assets/vendor/bootstrap-icons/bootstrap-icons.css"%}" rel="stylesheet">
+  <link href="{% static "assets/vendor/aos/aos.css" %}" rel="stylesheet">
+  <link href="{% static "assets/vendor/swiper/swiper-bundle.min.css" %}" rel="stylesheet">
+  <link href="{% static "assets/vendor/glightbox/css/glightbox.min.css" %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static "assets/css/main.css" %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Strategy
+  * Template URL: https://bootstrapmade.com/strategy-bootstrap-agency-template/
+  * Updated: Jun 06 2025 with Bootstrap v5.3.6
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+<style>
+  .content-wrapper {
+    padding-top: 110px; /* adjust if navbar height changes */
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("header");
+    const content = document.querySelector(".content-wrapper");
+    if (header && content) {
+      content.style.paddingTop = header.offsetHeight + "px";
+    }
+  });
+</script>
+
+
+</head>
+
+{#<body>#}
+{#class="index-page"#}
+<body class="{% block body_class %}{% endblock %}">
+
+{% block navbar %}
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'SmartBallot:home' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">SmartBallot</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'SmartBallot:home' %}" class="active">Home</a></li>
+            <li class="dropdown"><a href="{% url 'SmartBallot:home' %}#about"><span>About Us</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+                <li><a href="{% url 'SmartBallot:home' %}#pricing">Pricing</a></li>
+                  <li><a href="{% url 'SmartBallot:home' %}#security">Security</a></li>
+                  <li><a href="{% url 'SmartBallot:home' %}#portfolio">Who we serve</a></li>
+{#                  <li><a href="service-details.html">Nominations</a></li>#}
+{#                  <li><a href="service-details.html">Telephone Voting</a></li>#}
+            </ul>
+          </li>
+          <li class="dropdown"><a href="{% url 'SmartBallot:home' %}#services"><span>Solutions</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+                <li><a href="{% url 'SmartBallot:services' %}#service-details-tab-1">Manage Elections</a></li>
+                <li><a href="{% url 'SmartBallot:services' %}#service-details-tab-2">Online Voting</a></li>
+                <li><a href="{% url 'SmartBallot:services' %}#service-details-tab-3">Paper Ballot</a></li>
+{#                <li><a href="{% url 'SmartBallot:services' %}">Nominations</a></li>#}
+                <li><a href="{% url 'SmartBallot:services' %}#service-details-tab-4">Telephone Voting</a></li>
+            </ul>
+          </li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'Election:dashboard' %}">Elections</a></li>
+            {% endif %}
+            <li><a href="{% url 'SmartBallot:home' %}#contact">Contact Us</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+       {% if user.is_authenticated %}
+      <a class="btn btn-outline-light ms-2" href="/accounts/logout">Logout</a>
+    {% else %}
+      <a class="btn-getstarted" href="/accounts/register/">Get Started</a>
+      <a class="btn btn-outline-light ms-2" href="/accounts/login/">Login</a>
+    {% endif %}
+    </div>
+  </header>
+{% endblock navbar %}
+<main class="content-wrapper">
+  {% block content %}
+  {% endblock %}
+    <style>
+        /* 🔒 Prevent overlapping between sections */
+.service-tabs,
+.tab-content,
+.tab-pane {
+  position: relative;
+  clear: both;
+}
+
+/* 📦 Ensure cards calculate height correctly */
+.benefit-card {
+  height: 100%;
+}
+
+/* 🧱 Give swiper its own space */
+.service-slider-section {
+  position: relative;
+  margin-top: 80px;
+  padding-bottom: 40px;
+  clear: both;
+}
+
+/* 🖼️ Stop swiper images from escaping */
+.service-details-slider img {
+  max-width: 100%;
+  display: block;
+}
+
+    </style>
+    <style>
+        /* ================================
+   ✨ CARD HOVER ANIMATIONS
+   ================================ */
+
+/* 🔹 Base card styling */
+.benefit-card,
+.portfolio-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 20px;
+  height: 100%;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+/* 🔹 Hover effect */
+.benefit-card:hover,
+.portfolio-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(255, 193, 7, 0.25);
+}
+
+/* 🔹 Icon animation */
+.benefit-card i {
+  font-size: 2rem;
+  transition: transform 0.35s ease, color 0.35s ease;
+}
+
+/* 🔹 Icon pop on hover */
+.benefit-card:hover i {
+  transform: scale(1.2) rotate(-5deg);
+  color: #ffc107;
+}
+
+/* 🔹 Text smoothness */
+.benefit-card h4,
+.benefit-card p {
+  transition: color 0.3s ease;
+}
+
+/* 🔹 Portfolio image zoom */
+.portfolio-item img {
+  border-radius: 14px;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.06);
+}
+
+    </style>
+<!-- Bootstrap JS (REQUIRED for tabs) -->
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</main>

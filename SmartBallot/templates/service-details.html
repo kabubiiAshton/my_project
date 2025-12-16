@@ -1,0 +1,733 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Service Details{% endblock %}
+
+{% block content %}
+<!-- ======= Page Title ======= -->
+<div class="page-title dark-background" data-aos="fade">
+  <div class="container position-relative">
+    <h1>Service Details</h1>
+    <p>Secure and Transparent Election Management Across Traditional and Digital Voting Methods</p>
+    <nav class="breadcrumbs">
+      <ol>
+        <li><a href="{% url 'SmartBallot:home' %}">Home</a></li>
+        <li class="current">Service Details</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container my-5"></div>
+
+<!-- ======= Service Details Section ======= -->
+<div class="container" data-aos="fade-up" data-aos-delay="100">
+
+  <!-- Main Header -->
+  <div class="row gy-5">
+    <div class="col-lg-8 order-lg-1 order-2">
+      <div class="service-main-content">
+        <div class="service-header" data-aos="fade-up">
+          <h1>SmartBallot E-Voting Services</h1>
+            <div class="service-meta">
+  <span class="text-white me-3">
+    <i class="bi bi-award text-warning"></i> Fully Secured
+  </span>
+
+  <span class="text-white me-3">
+    <i class="bi bi-clock text-warning"></i> Accessible Anywhere
+  </span>
+
+  <span class="text-white">
+    <i class="bi bi-star-fill text-warning"></i> 4.9/5 Rating
+  </span>
+</div>
+          <p class="lead">
+            SmartBallot provides modern, secure, and transparent voting solutions designed for organizations of all sizes.
+            Whether your election is online, paper-based, or hybrid, we ensure accuracy, integrity, and ease of participation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Service Tabs ======= -->
+  <div class="service-tabs" data-aos="fade-up" data-aos-delay="200">
+    <ul class="nav nav-tabs" id="serviceTab" role="tablist">
+      <li class="nav-item">
+        <button class="nav-link active" id="tab-manage-tab" data-bs-toggle="tab" data-bs-target="#tab-manage" type="button">
+          <i class="bi bi-gear-fill text-warning"></i> Manage Elections
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="tab-online-tab" data-bs-toggle="tab" data-bs-target="#tab-online" type="button">
+          <i class="bi bi-diagram-3-fill text-warning"></i> Online Voting
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="tab-paper-tab" data-bs-toggle="tab" data-bs-target="#tab-paper" type="button">
+          <i class="bi bi-file-text-fill text-warning"></i> Paper Ballot
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="tab-phone-tab" data-bs-toggle="tab" data-bs-target="#tab-phone" type="button">
+          <i class="bi bi-telephone-fill text-warning"></i> Telephone Voting
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-4">
+
+      <!-- ===== Manage Elections ===== -->
+      <div class="tab-pane fade show active" id="tab-manage" role="tabpanel" aria-labelledby="tab-manage-tab">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="content-block">
+              <a href="{% url 'SmartBallot:services' %}">Manage Elections</a>
+              <p>
+                SmartBallot offers a comprehensive, end-to-end election management system designed to streamline every step
+                of the voting process. From setting up ballots to configuring voter eligibility, our platform ensures
+                precision, transparency, and full administrative control. Election managers can monitor real-time statistics,
+                track participation, enforce voting rules, and generate automated results instantly after the voting period ends.
+              </p>
+              <p>
+                Whether you're running small internal elections or large nationwide polls, SmartBallot provides an
+                intuitive dashboard, role-based permissions, audit trails, and advanced security features that guarantee
+                fairness and accuracy at every stage.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="{% static 'assets/img/services/services-7.webp' %}" alt="Manage Elections" class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Online Voting ===== -->
+      <div class="tab-pane fade" id="tab-online" role="tabpanel" aria-labelledby="tab-online-tab">
+        <a href="{% url 'SmartBallot:services' %}">Online Voting</a>
+        <p>
+          Our secure online voting system allows eligible voters to cast ballots from anywhere, on any device.
+          The platform uses encryption, unique voter tokens, and time-restricted access to prevent impersonation
+          or repeated voting. SmartBallot simplifies the voting experience with a clean and user-friendly interface
+          that guides voters step-by-step from login to confirmation.
+        </p>
+        <p>
+          Online voting drastically reduces costs associated with manual elections while increasing accessibility
+          for remote members, staff, students, or citizens. Every vote cast is verified, encrypted, and stored
+          safely to ensure the highest level of integrity.
+        </p>
+        <div class="row g-4 mt-3">
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-laptop text-warning"></i></div>
+              <h4>Dedicated Online Voting Website</h4>
+              <p>An exclusive voting website for your elections, branded with your logo and colors. Easy-to-use, cross-platform, accessible and professional.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-key-fill text-warning"></i></div>
+              <h4>Flexible Voter Authentication</h4>
+              <p>Voting passwords are generated for each eligible voter and distributed by email or postal letter. Or, Simply Voting integrates with your existing authentication method for a single sign-on solution.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-question-square text-warning"></i></div>
+              <h4>Flexible Ballot Questions</h4>
+              <p>The online voting system supports many types of voting rules and ballot questions including multiple choice, write-ins, and preferential. Attach photos and descriptions to each candidate and add comment boxes to collect feedback from voters.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-check2-square text-warning"></i></div>
+              <h4>Overlapping Elections</h4>
+              <p>You can run several elections independently of each other, even simultaneously. If someone is eligible to vote in multiple ballots they will be given the opportunity to vote in each one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Paper Ballot ===== -->
+      <div class="tab-pane fade" id="tab-paper" role="tabpanel" aria-labelledby="tab-paper-tab">
+        <a href="{% url 'SmartBallot:services' %}">Paper Ballot</a>
+        <p>
+          For organizations that prefer traditional voting, SmartBallot supports paper-based elections with full
+          logistical and administrative planning. We provide printable ballots, voter lists, ballot tracking, and
+          manual or scanner-assisted counting options. Each ballot is validated using strict anti-tampering
+          procedures to ensure vote authenticity.
+        </p>
+        <p>
+          Hybrid voting is also supported — allowing paper votes and online votes to be combined into a single
+          verified results report without compromising fairness or transparency.
+        </p>
+        <h3>Benefits and Features</h3>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-people-fill text-warning"></i></div>
+              <h4>In-Person Voting</h4>
+              <p>Allows traditional casting of paper ballots in a ballot box, <br>simultaneously with online voting.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-envelope-check text-warning"></i></div>
+              <h4>Mail-In Voting</h4>
+              <p>Support for efficiently processing mail-in ballots, simultaneously with online voting.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-person-check-fill text-warning"></i></div>
+              <h4>One Vote Per Voter</h4>
+              <p>It is impossible to vote twice, even if you try casting internet and telephone ballots at the same time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Telephone Voting ===== -->
+      <div class="tab-pane fade" id="tab-phone" role="tabpanel" aria-labelledby="tab-phone-tab">
+        <a href="{% url 'SmartBallot:services' %}">Telephone Voting</a>
+        <p>
+          Telephone voting gives participants a secure alternative when internet access is limited. Voters receive
+          a unique PIN and call a dedicated voting line where an automated system or operator guides them through
+          ballot selection. Each vote is instantly recorded and synchronized with the main election database.
+        </p>
+        <p>
+          This service is ideal for organizations with older members, remote workers, or accessibility needs.
+          SmartBallot ensures complete confidentiality and prevents duplicate voting across all channels.
+        </p>
+        <div class="row g-4 mt-3">
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-wifi-off text-warning"></i></div>
+              <h4>No Internet Required</h4>
+              <p>An advantage of telephone voting is that it does not require a computer or internet to vote. Any touch-tone phone will do.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-telephone-fill text-warning"></i></div>
+              <h4>Toll-Free Numbers</h4>
+              <p>Simply Voting can assign a local phone number for voters to call, a toll-free phone number.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-gear-fill text-warning"></i></div>
+              <h4>Flexible Voting Rules</h4>
+              <p>Most features of internet voting are supported by telephone voting system, including many types of voting rules and ballot questions, segmentation, and vote weight.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-shield-lock-fill text-warning"></i></div>
+              <h4>Anonymous & Secure</h4>
+              <p>Votes are anonymous. Election administrators and fellow voters will never know how a voter has voted. The voting system is designed around security from the ground-up. Learn more on our Security page.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-check2-circle text-warning"></i></div>
+              <h4>Accessible Ballots</h4>
+              <p>The voting interface is regularly audited against section 508 accessibility requirements. This ensures voting websites are compatible with screen-reading technology such as JAWS.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- tab content -->
+  </div> <!-- service-tabs -->
+
+  <!-- ===== Swiper Slider ===== -->
+  <section class="service-slider-section mt-5">
+  <div class="service-details-slider swiper init-swiper">
+    <script type="application/json" class="swiper-config">
+      {
+        "loop": true,
+        "speed": 800,
+        "autoplay": {"delay": 5000},
+        "slidesPerView": 1,
+        "spaceBetween": 30,
+        "breakpoints": {"768": {"slidesPerView": 2}},
+        "pagination": {"el": ".swiper-pagination","type": "bullets","clickable": true}
+      }
+    </script>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="portfolio-item">
+          <img src="{% static 'assets/img/services/services-2.webp' %}" alt="" class="img-fluid rounded" style="max-height: 300px; object-fit: cover;">
+          <div class="portfolio-info">
+            <h5>Social Media Campaign</h5>
+            <p>Increased engagement by 187%</p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="portfolio-item">
+          <img src="{% static 'assets/img/services/services-4.webp' %}" alt="" class="img-fluid rounded" style="max-height: 300px; object-fit: cover;">
+          <div class="portfolio-info">
+            <h5>SEO Optimization</h5>
+            <p>Ranked #1 for target keywords</p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="portfolio-item">
+          <img src="{% static 'assets/img/services/services-10.webp' %}" alt="" class="img-fluid rounded" style="max-height: 300px; object-fit: cover;">
+          <div class="portfolio-info">
+            <h5>Content Marketing</h5>
+            <p>200% increase in organic traffic</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  </section>
+
+</div> <!-- container -->
+
+<!-- ===== JS and AOS Initialization ===== -->
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+{% endblock %}
+
+
+
+
+{##}
+{#{% extends 'base.html' %}#}
+{#{% block title %}Service Details{% endblock %}#}
+{#{% load static %}#}
+{#{% block content %}#}
+{#    <!-- Page Title -->#}
+{#    <div class="page-title dark-background" data-aos="fade">#}
+{#      <div class="container position-relative">#}
+{#        <h1>Service Details</h1>#}
+{#          Secure and Transparent Election Management Across Traditional and Digital Voting Methods#}
+{#        <nav class="breadcrumbs">#}
+{#          <ol>#}
+{#            <li><a href="index.html">Home</a></li>#}
+{#            <li class="current">Service Details</li>#}
+{#          </ol>#}
+{#        </nav>#}
+{#    </div><!-- End Page Title -->#}
+{##}
+{#    <!-- Service Details Section -->#}
+{##}
+{#    <div class="container" data-aos="fade-up" data-aos-delay="100">#}
+{##}
+{#    <div class="row gy-5">#}
+{##}
+{#        <div class="col-lg-8 order-lg-1 order-2">#}
+{#            <div class="service-main-content">#}
+{#                <div class="service-header" data-aos="fade-up">#}
+{#                    <h1>SmartBallot E-Voting Services</h1>#}
+{#                    <div class="service-meta">#}
+{#                        <span><i class="bi bi-award"></i> Fully Secured</span>#}
+{#                        <span><i class="bi bi-clock"></i>Accessible Anywhere</span>#}
+{#                        <span><i class="bi bi-star-fill"></i> 4.9/5 Rating</span>#}
+{#                    </div>#}
+{#                    <p class="lead">#}
+{#                        SmartBallot provides modern, secure, and transparent voting solutions designed for organizations of all sizes.#}
+{#                        Whether your election is online, paper-based, or hybrid, we ensure accuracy, integrity, and ease of participation.</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{##}
+{##}
+{#                <div class="service-tabs" data-aos="fade-up" data-aos-delay="200">#}
+{#                    <ul class="nav nav-tabs" id="serviceTab" role="tablist">#}
+{#                        <li class="nav-item">#}
+{#                            <button class="nav-link active"#}
+{#                                        data-bs-toggle="tab"#}
+{#                                        data-bs-target="#tab-manage"#}
+{#                                        type="button">#}
+{#                                  <i class="bi bi-gear"></i> Manage Elections#}
+{#                                </button>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                                <button class="nav-link"#}
+{#                                        data-bs-toggle="tab"#}
+{#                                        data-bs-target="#tab-online"#}
+{#                                        type="button">#}
+{#                                  <i class="bi bi-diagram-3"></i> Online Voting#}
+{#                                </button>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                                <button class="nav-link"#}
+{#                                        data-bs-toggle="tab"#}
+{#                                        data-bs-target="#tab-paper"#}
+{#                                        type="button">#}
+{#                                  <i class="bi bi-file-text"></i> Paper Ballot#}
+{#                                </button>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                                <button class="nav-link"#}
+{#                                        data-bs-toggle="tab"#}
+{#                                        data-bs-target="#tab-phone"#}
+{#                                        type="button">#}
+{#                                  <i class="bi bi-telephone"></i> Telephone Voting#}
+{#                                </button>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                    <!--                  MANAGE ELECTIONS PART-->#}
+{##}
+{#                    <div class="tab-content">#}
+{##}
+{#                        <div class="tab-pane fade show active" id="service-details-tab-1" role="tabpanel" aria-labelledby="overview-tab">#}
+{#                            <div class="row">#}
+{#                                <div class="col-md-6">#}
+{#                                    <div class="content-block">#}
+{#                                        <a href="{% url 'SmartBallot:services' %}">Manage Elections</a>#}
+{#                                        <p>SmartBallot offers a comprehensive, end-to-end election management system designed to streamline every step#}
+{#                                            of the voting process. From setting up ballots to configuring voter eligibility, our platform ensures#}
+{#                                            precision, transparency, and full administrative control. Election managers can monitor real-time statistics,#}
+{#                                            track participation, enforce voting rules, and generate automated results instantly after the voting period ends.</p>#}
+{#                                        <p>Whether you're running small internal elections or large nationwide polls, SmartBallot provides an#}
+{#                                            intuitive dashboard, role-based permissions, audit trails, and advanced security features that guarantee#}
+{#                                            fairness and accuracy at every stage.</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="col-md-6">#}
+{#                                    <img src="{% static 'assets/img/services/services-7.webp' %}" alt="Digital Marketing Strategy" class="img-fluid rounded">#}
+{#                                </div>#}
+{#                                <div class="tab-pane fade" id="service-details-tab-2" role="tabpanel" aria-labelledby="process-tab">#}
+{#                                    <div class="process-timeline">#}
+{#                                        <div class="timeline-item">#}
+{#                                            <!--                        <div class="timeline-marker">01</div>-->#}
+{#                                            <div class="timeline-content">#}
+{#                                                <a href="{% url 'SmartBallot:services' %}">Online Voting</a>#}
+{#                                                <p>Our secure online voting system allows eligible voters to cast ballots from anywhere, on any device.#}
+{#                                                    The platform uses encryption, unique voter tokens, and time-restricted access to prevent impersonation#}
+{#                                                    or repeated voting. SmartBallot simplifies the voting experience with a clean and user-friendly interface#}
+{#                                                    that guides voters step-by-step from login to confirmation.</p>#}
+{#                                                <p>#}
+{#                                                    Online voting drastically reduces costs associated with manual elections while increasing accessibility#}
+{#                                                    for remote members, staff, students, or citizens. Every vote cast is verified, encrypted, and stored#}
+{#                                                    safely to ensure the highest level of integrity.#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div><div class="row g-4"><div class="col-md-6">#}
+{#                                        <div class="benefit-card">#}
+{#                                            <div class="benefit-icon">#}
+{#                                                <i class="bi bi-laptop"></i>#}
+{#                                            </div>#}
+{#                                            <h4>Dedicated Online Voting Website</h4>#}
+{#                                            <p>An exclusive voting website for your elections, branded with your logo and colors. Easy-to-use, cross-platform, accessible and professional.</p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                        <div class="col-md-6">#}
+{#                                            <div class="benefit-card">#}
+{#                                                <div class="benefit-icon">#}
+{#                                                    <i class="bi bi-key-fill"></i>#}
+{#                                                </div><h4>Flexible Voter Authentication</h4>#}
+{#                                                <p>Voting passwords are generated for each eligible voter and distributed by email or postal letter. Or, Simply Voting integrates with your existing authentication method for a single sign-on solution.</p></div>#}
+{#                                        </div><div class="col-md-6">#}
+{#                                            <div class="benefit-card">#}
+{#                                                <div class="benefit-icon">#}
+{#                                                    <i class="bi bi-question-square"></i>#}
+{#                                                </div><h4>Flexible Ballot Questions</h4><p>The online voting system supports many types of voting rules and ballot questions including multiple choice, write-ins, and preferential. Attach photos and descriptions to each candidate and add comment boxes to collect feedback from voters.</p>#}
+{#                                            </div>#}
+{#                                        </div><div class="col-md-6">#}
+{#                                            <div class="benefit-card">#}
+{#                                                <div class="benefit-icon">#}
+{#                                                    <i class="bi bi-check2-square"></i>#}
+{#                                                </div>#}
+{#                                                <h4>Overlapping Elections</h4>#}
+{#                                                <p>You can run several elections independently of each other, even simultaneously. If someone is eligible to vote in multiple ballots they will be given the opportunity to vote in each one.</p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="tab-pane fade" id="service-details-tab-3" role="tabpanel" aria-labelledby="benefits-tab">#}
+{#                                    <a href="{% url 'SmartBallot:services' %}">Paper Ballot</a>#}
+{#                                    <p>#}
+{#                                        For organizations that prefer traditional voting, SmartBallot supports paper-based elections with full#}
+{#                                        logistical and administrative planning. We provide printable ballots, voter lists, ballot tracking, and#}
+{#                                        manual or scanner-assisted counting options. Each ballot is validated using strict anti-tampering#}
+{#                                        procedures to ensure vote authenticity.</p>#}
+{#                                    <p>#}
+{#                                        Hybrid voting is also supported — allowing paper votes and online votes to be combined into a single#}
+{#                                        verified results report without compromising fairness or transparency.</p>#}
+{#                                    <h3>Benefits and Features</h3>#}
+{#                                    <div class="row g-4">#}
+{#                                        <div class="col-md-6">#}
+{#                                            <div class="benefit-card">#}
+{#                                                <div class="benefit-icon">#}
+{#                                                    <i class="bi bi-people-fill"></i></div>#}
+{#                                                <h4>In-Person Voting</h4>#}
+{#                                                <p>Allows traditional casting of paper ballots in a ballot box, <br>simultaneously with online voting.</p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-md-6">#}
+{#                                            <div class="benefit-card">#}
+{#                                                <div class="benefit-icon">#}
+{#                                                    <i class="bi bi-envelope-check"></i>#}
+{#                                                </div>#}
+{#                                                <h4>Mail-In Voting</h4>#}
+{#                                                <p>Support for efficiently processing mail-in ballots, simultaneously with online voting.</p>#}
+{#                                            </div>#}
+{#                                        </div><div class="col-md-6">#}
+{#                                        <div class="benefit-card">#}
+{#                                            <div class="benefit-icon">#}
+{#                                                <i class="bi bi-person-check-fill"></i>#}
+{#                                            </div>#}
+{#                                            <h4>One Vote Per Voter</h4>#}
+{#                                            <p>It is impossible to vote twice, even if you try casting internet and telephone ballots at the same time</p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </div>#}
+{#                                </div><div class="tab-pane fade" id="service-details-tab-4" role="tabpanel" aria-labelledby="benefits-tab">#}
+{#                                <div class="process-timeline">#}
+{#                                    <div class="timeline-item">#}
+{#                                        <div class="timeline-content">#}
+{#                                            <a href="{% url 'SmartBallot:services' %}">Telephone Voting</a>#}
+{#                                            <p>#}
+{#                                                Telephone voting gives participants a secure alternative when internet access is limited. Voters receive#}
+{#                                                a unique PIN and call a dedicated voting line where an automated system or operator guides them through#}
+{#                                                ballot selection. Each vote is instantly recorded and synchronized with the main election database.#}
+{#                                            </p>#}
+{#                                            <p>#}
+{#                                                This service is ideal for organizations with older members, remote workers, or accessibility needs.#}
+{#                                                SmartBallot ensures complete confidentiality and prevents duplicate voting across all channels.#}
+{#                                            </p>#}
+{#                                            <div class="row g-4">#}
+{#                                                <div class="col-md-6">#}
+{#                                                    <div class="benefit-card">#}
+{#                                                        <div class="benefit-icon">#}
+{#                                                            <i class="bi bi-wifi-off"></i>#}
+{#                                                        </div>#}
+{#                                                        <h4>No Internet Required</h4>#}
+{#                                                        <p>An advantage of telephone voting is that it does not require a computer or internet to vote.Any touch-tone phone will do.</p>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                                <div class="col-md-6">#}
+{#                                                    <div class="benefit-card">#}
+{#                                                        <div class="benefit-icon">#}
+{#                                                            <i class="bi bi-telephone-fill"></i>#}
+{#                                                        </div>#}
+{#                                                        <h4>Toll-Free Numbers</h4>#}
+{#                                                        <p>Simply Voting can assign a local phone number for voters to call, a toll-free phone number.</p>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                                <div class="col-md-6">#}
+{#                                                    <div class="benefit-card">#}
+{#                                                        <div class="benefit-icon">#}
+{#                                                            <i class="bi bi-gear-fill"></i>#}
+{#                                                        </div>#}
+{#                                                        <h4>Flexible Voting Rules</h4>#}
+{#                                                        <p>Most features of internet voting are supported by telephone voting system, including many types of voting rules and ballot questions,segmentation, and vote weight.</p>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                                <div class="col-md-6">#}
+{#                                                    <div class="benefit-card">#}
+{#                                                        <div class="benefit-icon">#}
+{#                                                            <i class="bi bi-shield-lock-fill"></i>#}
+{#                                                        </div>#}
+{#                                                        <h4>Anonymous & Secure</h4>#}
+{#                                                        <p>Votes are anonymous. Election administrators and fellow voters will never know how a voter has voted. The voting system is designed around security from the ground-up. Learn more on our Security page.</p>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                                <div class="col-md-6">#}
+{#                                                    <div class="benefit-card">#}
+{#                                                        <div class="benefit-icon">#}
+{#                                                            <i class="bi bi-check2-circle"></i>#}
+{#                                                        </div>#}
+{#                                                        <h4>Accessible Ballots</h4>#}
+{#                                                        <p>The voting interface is regularly audited against section 508 accessibility requirements. This ensures voting websites are compatible with screen-reading technology such as JAWS</p>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="service-details-slider swiper init-swiper">#}
+{#                        <script type="application/json" class="swiper-config">#}
+{#                            {#}
+{#                              "loop": true,#}
+{#                              "speed": 800,#}
+{#                              "autoplay": {#}
+{#                                "delay": 5000#}
+{#                              },#}
+{#                              "slidesPerView": 1,#}
+{#                              "spaceBetween": 30,#}
+{#                              "breakpoints": {#}
+{#                                "768": {#}
+{#                                  "slidesPerView": 2#}
+{#                                }#}
+{#                              },#}
+{#                              "pagination": {#}
+{#                                "el": ".swiper-pagination",#}
+{#                                "type": "bullets",#}
+{#                                "clickable": true#}
+{#                              }#}
+{#                            }#}
+{#                        </script>#}
+{#                        <div class="swiper-wrapper">#}
+{#                            <div class="swiper-slide">#}
+{#                                <div class="portfolio-item">#}
+{#                                    <img src="{% static 'assets/img/services/services-2.webp' %}" alt="" class="img-fluid" loading="lazy">#}
+{#                                    <div class="portfolio-info">#}
+{#                                        <h5>Social Media Campaign</h5>#}
+{#                                        <p>Increased engagement by 187%</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="swiper-slide">#}
+{#                                <div class="portfolio-item">#}
+{#                                    <img src="{% static 'assets/img/services/services-4.webp' %}" alt="" class="img-fluid" loading="lazy">#}
+{#                                    <div class="portfolio-info">#}
+{#                                        <h5>SEO Optimization</h5>#}
+{#                                        <p>Ranked #1 for target keywords</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="swiper-slide">#}
+{#                                <div class="portfolio-item">#}
+{#                                    <img src="{% static 'assets/img/services/services-10.webp' %}" alt="" class="img-fluid" loading="lazy">#}
+{#                                    <div class="portfolio-info">#}
+{#                                        <h5>Content Marketing</h5>#}
+{#                                        <p>200% increase in organic traffic</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="swiper-pagination"></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <!-- /Service Details Section -->#}
+{# <style>#}
+{#    footer {#}
+{#  font-size: 14px;#}
+{#}#}
+{##}
+{#.footer h4,#}
+{#.footer h6 {#}
+{#  color: #ffffff;#}
+{#}#}
+{##}
+{#.footer-links li {#}
+{#  margin-bottom: 8px;#}
+{#}#}
+{##}
+{#.footer-links a {#}
+{#  color: #adb5bd;#}
+{#  text-decoration: none;#}
+{#  transition: color 0.3s ease;#}
+{#}#}
+{#.footer-links a:hover {#}
+{#  color: #0d6efd;#}
+{#  text-decoration: underline;#}
+{#}#}
+{#    </style>#}
+{#    <footer class="footer bg-dark text-light pt-5">#}
+{#  <div class="container">#}
+{#    <div class="row gy-4">#}
+{##}
+{#      <!-- BRAND -->#}
+{#      <div class="col-lg-4 col-md-6">#}
+{#        <h4 class="fw-bold">SmartBallot</h4>#}
+{#        <p class="small text-muted">#}
+{#          Secure, transparent, and reliable online voting for organizations, institutions, and communities.#}
+{#        </p>#}
+{##}
+{#        <p class="small">#}
+{#          🔒 End-to-end encrypted<br>#}
+{#          🛡 Data protection compliant<br>#}
+{#          ✅ Auditable elections#}
+{#        </p>#}
+{#      </div>#}
+{##}
+{#      <!-- QUICK LINKS -->#}
+{#      <div class="col-lg-2 col-md-6">#}
+{#        <h6 class="text-uppercase fw-bold mb-3">Quick Links</h6>#}
+{#        <ul class="list-unstyled footer-links">#}
+{#          <li><a href="{% url 'SmartBallot:home' %}">Home</a></li>#}
+{#          <li><a href="{% url 'SmartBallot:home' %}#about">About</a></li>#}
+{#          <li><a href="{% url 'SmartBallot:home' %}#services">Solutions</a></li>#}
+{#     <li><a href="{% url 'SmartBallot:home' %}#contact">Contact</a></li>#}
+{#        </ul>#}
+{#      </div>#}
+{##}
+{#      <!-- VOTERS -->#}
+{#      <div class="col-lg-3 col-md-6">#}
+{#        <h6 class="text-uppercase fw-bold mb-3">For Voters</h6>#}
+{#        <ul class="list-unstyled footer-links">#}
+{#          <li>✔ Secure login</li>#}
+{#          <li>✔ One vote per voter</li>#}
+{#          <li>✔ Anonymous ballots</li>#}
+{#          <li>✔ Real-time confirmation</li>#}
+{#        </ul>#}
+{#      </div>#}
+{##}
+{#      <!-- ACCOUNT / ADMIN -->#}
+{#      <div class="col-lg-3 col-md-6">#}
+{#        <h6 class="text-uppercase fw-bold mb-3">Account</h6>#}
+{#     {% if user.is_authenticated %}#}
+{#          <ul class="list-unstyled footer-links">#}
+{#            <li><a href="{% url 'Election:dashboard' %}">Election Dashboard</a></li>#}
+{#            <li><a href="{% url 'Election:dashboard' %}">Manage Elections</a></li>#}
+{#            <li><a href="/accounts/logout/">Logout</a></li>#}
+{#          </ul>#}
+{#        {% else %}#}
+{#          <ul class="list-unstyled footer-links">#}
+{#            <li><a href="/accounts/login/">Login</a></li>#}
+{#            <li><a href="/accounts/register/">Register</a></li>#}
+{#          </ul>#}
+{#        {% endif %}#}
+{#      </div>#}
+{##}
+{#    </div>#}
+{#    <hr class="border-secondary my-4">#}
+{##}
+{#    <!-- BOTTOM BAR -->#}
+{#    <div class="row align-items-center">#}
+{#      <div class="col-md-6 text-center text-md-start small text-muted">#}
+{#        © {{ now|date:"Y" }} SmartBallot. All rights reserved.#}
+{#      </div>#}
+{##}
+{#      <div class="col-md-6 text-center text-md-end small">#}
+{#        <a href="{% url 'SmartBallot:home' %}#about" class="me-3">Privacy Policy</a>#}
+{#        <a href="{% url 'SmartBallot:home' %}#about" class="me-3">Terms</a>#}
+{#        <a href="{% url 'SmartBallot:home' %}#security">Security</a>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</footer>#}
+{##}
+{#  <!-- Scroll Top -->#}
+{#  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>#}
+{##}
+{#  <!-- Preloader -->#}
+{#  <div id="preloader"></div>#}
+{##}
+{##}
+{#  <!-- Vendor JS Files -->#}
+{#  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>#}
+{#  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>#}
+{#  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>#}
+{#  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>#}
+{#  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>#}
+{#  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>#}
+{#  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>#}
+{##}
+{#  <!-- Main JS File -->#}
+{#  <script src="{% static 'assets/js/main.js' %}"></script>#}
+{##}
+{#{% endblock %}#}

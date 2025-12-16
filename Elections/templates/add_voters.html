@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Add Voter{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-light" style="max-width: 700px;">
+
+    <div class="card bg-dark border-0 shadow">
+        <div class="card-body">
+
+            <h3 class="card-title mb-2">Add a New Voter</h3>
+            <p class="text-muted">
+                Register a voter manually for a specific election.
+            </p>
+
+            <hr class="text-secondary">
+
+            <form method="POST" novalidate>
+                {% csrf_token %}
+
+                <!-- FULL NAME -->
+                <div class="mb-3">
+                    <label class="form-label">Voter Full Name</label>
+                    <input type="text"
+                           name="full_name"
+                           class="form-control"
+                           placeholder="e.g. John Doe"
+                           required>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email"
+                           name="email"
+                           class="form-control"
+                           placeholder="e.g. voter@example.com"
+                           required>
+                    <small class="text-muted">
+                        This email will be used to identify the voter.
+                    </small>
+                </div>
+
+                <!-- ELECTION -->
+                <div class="mb-3">
+                    <label class="form-label">Election</label>
+                    <select name="election" class="form-select" required>
+                        <option value="">-- Select Election --</option>
+                        {% for election in elections %}
+                            <option value="{{ election.id }}">
+                                {{ election.title }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- ACTION BUTTONS -->
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="{% url 'Election:dashboard' %}" class="btn btn-outline-light">
+                        Cancel
+                    </a>
+                    <button type="submit" class="btn btn-success">
+                        Add Voter
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

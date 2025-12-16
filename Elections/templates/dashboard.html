@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Election Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="fw-bold text-light">Election Dashboard</h1>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="mb-4">
+        <a class="btn btn-primary me-2" href="{% url 'Election:create' %}">
+            <i class="bi bi-plus-circle"></i> Create New Election
+        </a>
+
+        <a class="btn btn-success me-2" href="{% url 'Election:add_voters' %}">
+            <i class="bi bi-person-plus"></i> Add Voters
+        </a>
+
+        <a class="btn btn-info me-2" href="{% url 'Election:import_voters' %}">
+            <i class="bi bi-upload"></i> Import Voters
+        </a>
+
+        <a class="btn btn-warning" href="{% url 'Election:manage_candidates' %}">
+            <i class="bi bi-people"></i> Manage Candidates
+        </a>
+    </div>
+
+    <hr class="text-light">
+
+    <!-- LIST OF ELECTIONS -->
+    <h3 class="text-light mb-3">All Elections</h3>
+
+    {% if elections %}
+        <ul class="list-group">
+            {% for e in elections %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ e.title }}</strong><br>
+                    <small>{{ e.start_date }} — {{ e.end_date }}</small><br>
+                </div>
+
+                <div>
+    <a class="btn btn-sm btn-outline-secondary me-1"
+       href="{% url 'Election:detail' e.id %}">
+       Details
+    </a>
+
+    <a class="btn btn-sm btn-outline-primary me-1"
+       href="{% url 'Election:vote_page' e.id %}">
+       Vote
+    </a>
+
+    <a class="btn btn-sm btn-outline-success me-1"
+       href="{% url 'Election:results' e.id %}">
+       Results
+    </a>
+
+    {% if e.created_by == request.user %}
+        <a class="btn btn-sm btn-outline-danger"
+           href="{% url 'Election:delete_election' e.id %}">
+           Delete
+        </a>
+    {% endif %}
+</div>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-info">No elections found.</div>
+    {% endif %}
+</div>
+{% endblock %}

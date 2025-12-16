@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 id="elections">{{ election.title }}</h1>
+  <p>{{ election.description }}</p>
+  <p>From {{ election.start_time }} to {{ election.end_time }}</p>
+
+  {% if user.is_authenticated %}
+    {% if has_voted %}
+      <p>You have already voted. <a href="{% url 'elections:results' election.pk %}">See results</a></p>
+    {% elif election.is_open %}
+      <form method="post" action="{% url 'elections:vote' election.pk %}">
+        {% csrf_token %}
+        {% for c in candidates %}
+          <div>
+            <label>
+              <input type="radio" name="candidate" value="{{ c.pk }}">
+              {{ c.name }} - {{ c.bio|truncatewords:10 }}
+            </label>
+          </div>
+        {% endfor %}
+        <button type="submit">Cast Vote</button>
+      </form>
+    {% else %}
+      <p>This election is not open right now.</p>
+    {% endif %}
+  {% else %}
+    <p><a href="{% url 'accounts:login' %}?next={{ request.path }}">Login</a> to vote.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block title %}Election Results{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+  <!-- Results Header -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h2 class="mb-1">Election Results</h2>
+      <h5 class="text-muted">{{ election.title }}</h5>
+
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <strong>Status:</strong><br>
+          {% if election.is_active %}
+            <span class="badge bg-warning text-dark">Ongoing</span>
+          {% else %}
+            <span class="badge bg-success">Completed</span>
+          {% endif %}
+        </div>
+
+        <div class="col-md-4">
+          <strong>Total Voter Turnout:</strong><br>
+          {{ turnout_percent }}%
+        </div>
+
+        <div class="col-md-4">
+          <strong>Results Visibility:</strong><br>
+          Official & Verified
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Per Position -->
+  {% for block in positions_with_votes %}
+  <div class="card mb-4 shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">{{ block.position.name }}</h5>
+      <span class="badge bg-info text-dark">
+        {{ block.total_votes }} Votes Cast
+      </span>
+    </div>
+
+    <div class="card-body">
+
+      <!-- Winner Summary -->
+      {% if block.winner %}
+      <div class="alert alert-success">
+        <strong>Leading Candidate:</strong>
+        {{ block.winner.candidate.name }}
+        <span class="ms-2 text-muted">
+          ({{ block.winner.votes_count }} votes)
+        </span>
+      </div>
+      {% endif %}
+
+      <!-- Chart -->
+      <div class="mb-4">
+        <canvas id="chart{{ block.position.id }}" height="120"></canvas>
+      </div>
+
+      <!-- Numerical Table -->
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Candidate</th>
+              <th class="text-center">Votes</th>
+              <th class="text-center">Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in block.candidates %}
+            <tr {% if block.winner and item.candidate.id == block.winner.candidate.id %}class="table-success"{% endif %}>
+              <td>{{ item.candidate.name }}</td>
+              <td class="text-center">{{ item.votes_count }}</td>
+              <td class="text-center">
+                {{ item.vote_percent }}%
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Chart Script -->
+  <script>
+    const ctx{{ block.position.id }} = document.getElementById('chart{{ block.position.id }}');
+
+    new Chart(ctx{{ block.position.id }}, {
+      type: 'bar',
+      data: {
+        labels: [{% for item in block.candidates %}'{{ item.candidate.name }}',{% endfor %}],
+        datasets: [{
+          label: 'Votes',
+          data: [{% for item in block.candidates %}{{ item.votes_count }},{% endfor %}],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              precision: 0
+            }
+          }
+        }
+      }
+    });
+  </script>
+  {% endfor %}
+
+  <!-- Footer Actions -->
+  <div class="d-flex justify-content-between mt-4">
+    <a href="{% url 'elections:dashboard' %}" class="btn btn-outline-secondary">
+      Back to Dashboard
+    </a>
+    <button class="btn btn-outline-primary" onclick="window.print()">
+      Print Results
+    </button>
+  </div>
+
+</div>
+{% endblock %}

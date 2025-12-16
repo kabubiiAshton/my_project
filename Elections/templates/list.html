@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>All Elections</h1>
+  <ul>
+    {% for e in elections %}
+      <li><a href="{% url 'elections:detail' e.pk %}">{{ e.title }}</a> - {{ e.start_time }} to {{ e.end_time }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

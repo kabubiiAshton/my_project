@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Manage Candidates{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2>Manage Candidates & Positions</h2>
+      <p class="text-muted mb-0">
+        Add positions and assign candidates for each election
+      </p>
+    </div>
+
+    <div>
+      <a href="{% url 'elections:create_position' %}" class="btn btn-warning me-2">
+        + Add Position
+      </a>
+      <a href="{% url 'elections:add_candidate' %}" class="btn btn-primary">
+        + Add Candidate
+      </a>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Positions List -->
+  {% if positions %}
+    {% for pos in positions %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <div>
+            <strong>{{ pos.name }}</strong>
+            <span class="text-muted">
+              — {{ pos.election.title }}
+            </span>
+          </div>
+
+          <span class="badge bg-info">
+            {{ pos.candidates.count }} Candidate{{ pos.candidates.count|pluralize }}
+          </span>
+        </div>
+
+        <div class="card-body">
+          {% if pos.candidates.all %}
+            <ul class="list-group">
+              {% for c in pos.candidates.all %}
+                <li class="list-group-item d-flex align-items-center gap-3">
+
+  {% if c.photo %}
+    <img src="{{ c.photo.url }}"
+         alt="{{ c.name }}"
+         width="50"
+         height="50"
+         class="rounded-circle border">
+  {% else %}
+    <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+         style="width:50px;height:50px;">
+      <i class="bi bi-person"></i>
+    </div>
+  {% endif %}
+
+  <div class="flex-grow-1">
+    <strong>{{ c.name }}</strong><br>
+    <small class="text-muted">Candidate</small>
+  </div>
+
+</li>
+
+              {% endfor %}
+            </ul>
+          {% else %}
+            <div class="alert alert-light">
+              No candidates added yet for this position.
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="alert alert-info">
+      No positions created yet. Start by adding a position.
+    </div>
+  {% endif %}
+
+  <!-- Back -->
+  <div class="mt-4">
+    <a href="{% url 'elections:dashboard' %}" class="btn btn-outline-secondary">
+      ← Back to Dashboard
+    </a>
+  </div>
+
+</div>
+{% endblock %}

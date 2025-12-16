@@ -1,0 +1,1514 @@
+{% extends 'base.html' %}
+{% block title %}Home | SmartBallot{% endblock %}
+
+{% block navbar %}
+    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'SmartBallot:home' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">SmartBallot</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'SmartBallot:home' %}" class="active">Home</a></li>
+            <li class="dropdown"><a href="{% url 'SmartBallot:home' %}#about"><span>About Us</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+                <li><a href="{% url 'SmartBallot:home' %}#pricing">Pricing</a></li>
+                  <li><a href="{% url 'SmartBallot:home' %}#security">Security</a></li>
+                  <li><a href="{% url 'SmartBallot:home' %}#portfolio">Who we serve</a></li>
+{#                  <li><a href="service-details.html">Nominations</a></li>#}
+{#                  <li><a href="service-details.html">Telephone Voting</a></li>#}
+            </ul>
+          </li>
+          <li class="dropdown"><a href="{% url 'SmartBallot:home' %}#services"><span>Solutions</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+                <li><a href="{% url 'SmartBallot:services' %}#service-details-tab-1">Manage Elections</a></li>
+                <li><a href="{% url 'SmartBallot:services' %}#service-details-tab-2">Online Voting</a></li>
+{#                <li><a href="{% url 'SmartBallot:services' %}#service-details-tab-1">Paper Ballot</a></li>#}
+                <li><a href="{% url 'SmartBallot:services' %}#service-details-tab-3">Nominations</a></li>
+                <li><a href="{% url 'SmartBallot:services' %}#service-details-tab-4">Telephone Voting</a></li>
+            </ul>
+          </li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'Election:dashboard' %}">Elections</a></li>
+{#            <li><a href="#contact">Billing</a></li>#}
+            {% endif %}
+            <li><a href="{% url 'SmartBallot:home' %}#contact">Contact Us</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+       {% if user.is_authenticated %}
+{#      <a class="btn-getstarted" href="/accounts/dashboard">Dashboard</a>#}
+      <a class="btn btn-outline-light ms-2" href="/accounts/logout">Logout</a>
+    {% else %}
+      <a class="btn-getstarted" href="/accounts/register/">Get Started</a>
+      <a class="btn btn-outline-light ms-2" href="/accounts/login/">Login</a>
+    {% endif %}
+    </div>
+{% endblock navbar %}
+
+{% block content %}
+{% load static %}
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 content-col" data-aos="fade-up">
+            <div class="content">
+              <div class="agency-name">
+                <h5>SAFE ELECT</h5>
+              </div>
+
+              <div class="main-heading">
+                <h1>SMART <br>BALLOT</h1>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="description">
+                <p>Smart Ballot is a secure and easy to use online voting software, capable of conducting elections and referendums of any scale
+                An online voting system you can trust
+Simply Voting is a full-service, web-based online voting system designed to seamlessly and securely facilitate your election process. Flawless elections made simple!</p>
+              </div>
+
+              <div class="cta-button">
+                <a href="#about" class="btn">
+                  <span>Try for Free</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5" data-aos="zoom-out">
+            <div class="visual-content">
+              <div class="fluid-shape">
+                  <img src="{% static 'assets/img/abstract/ChatGPT_Image_Dec_7__2025__10_22_16_AM-removebg-preview.png' %}" alt="Abstract Fluid Shape" class="fluid-img">
+<!--                <img src="assets/img/abstract/abstract-1.webp" alt="Abstract Fluid Shape" class="fluid-img">-->
+              </div>
+
+              <div class="stats-card">
+                <div class="stats-number">
+                  <h2>5K</h2>
+                </div>
+                <div class="stats-label">
+                  <p>Successful Elections</p>
+                </div>
+                <div class="stats-arrow">
+                  <a href="#portfolio"><i class="bi bi-arrow-up-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About</h2>
+        <div><span>Learn More</span> <span class="description-title">About Us</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+            <div class="about-image position-relative">
+<!--                <img src="assets/img/about/ChatGPT%20Image%20Dec%207,%202025,%2010_22_16%20AM.png" class="img-fluid rounded-4 shadow-sm" alt="About Image" loading="lazy">-->
+              <img src="{% static 'assets/img/about/about-portrait-1.webp' %}" class="img-fluid rounded-4 shadow-sm" alt="About Image" loading="lazy">
+              <div class="experience-badge">
+                <span class="years">5+</span>
+                <span class="text">Years of Expertise</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="300">
+            <div class="about-content">
+              <h2>Building Confidence, Security, and Efficiency in Every Election.</h2>
+              <p class="lead">SmartBallot is a modern, secure, and flexible online voting platform designed to transform the way individuals and organizations conduct elections. Our mission is to make voting simpler, more reliable, and more accessible to everyone, regardless of location or device. We believe that every election—big or small—deserves transparency, fairness, and strong protection against manipulation. By combining cutting-edge technology with an intuitive user experience, SmartBallot ensures that every vote is captured accurately and securely.</p>
+              <p>Over the years, we have supported a wide range of institutions including unions, political groups, schools, corporate boards, associations, and community organizations. Whether it’s a national-level election or a small internal committee vote, SmartBallot provides a system that adapts to each client’s unique requirements. From customizable ballots to multiple authentication options and real-time results tracking, we give administrators full control while maintaining the integrity of the voting process.</p>
+
+              <div class="row g-4 mt-3">
+                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                  <div class="feature-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <h5>Security</h5>
+                    <p>Security is at the heart of everything we do. SmartBallot uses advanced encryption, voter-verification systems, anti-duplication measures, and activity logging to ensure that every election is tamper-proof. We prioritize data privacy and ensure that both voters’ identities and their ballot choices remain confidential at all times.</p>
+                  </div>
+                </div>
+                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="450">
+                  <div class="feature-item">
+                    <i class="bi bi-lightbulb-fill"></i>
+                    <h5>Accessibility</h5>
+                    <p>We also pride ourselves on offering a smooth voter experience. SmartBallot is accessible across desktops, mobile devices, and tablets, ensuring that anyone with internet access can participate. Our interface guides users through the voting steps clearly, removing confusion or technical barriers.</p>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="btn btn-primary mt-4">Explore Our Services</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-section mt-5 pt-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-4" data-aos="fade-right" data-aos-delay="200">
+              <div class="testimonial-intro">
+                <h3>Our Clients Speak Highly</h3>
+                <p>Hear directly from those who have experienced the impact of our partnership and achieved their strategic goals.</p>
+                <div class="swiper-nav-buttons mt-4">
+                  <button class="slider-prev"><i class="bi bi-arrow-left"></i></button>
+                  <button class="slider-next"><i class="bi bi-arrow-right"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-8" data-aos="fade-left" data-aos-delay="300">
+              <div class="testimonial-slider swiper init-swiper">
+                <script type="application/json" class="swiper-config">
+                  {
+                    "loop": true,
+                    "speed": 800,
+                    "autoplay": {
+                      "delay": 5000
+                    },
+                    "slidesPerView": 1,
+                    "spaceBetween": 30,
+                    "navigation": {
+                      "nextEl": ".slider-next",
+                      "prevEl": ".slider-prev"
+                    },
+                    "breakpoints": {
+                      "768": {
+                        "slidesPerView": 2
+                      }
+                    }
+                  }
+                </script>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="rating mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                        <p>“We needed a secure voting platform for shareholder decisions. This system supports encrypted ballots and strict authentication, which made compliance easy. The quick setup and clean interface made the whole process smooth. We’ll definitely use it for all future corporate voting.”</p>
+                        <div class="client-info d-flex align-items-center mt-4">
+                        <img src="{% static 'assets/img/person/person-f-1.webp' %}" class="client-img" alt="Client" loading="lazy">
+                        <div>
+                          <h6 class="mb-0">Eleanor Vance</h6>
+                          <span>Operations Manager</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="rating mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      </div>
+                        <p>“Our church needed a safe and unbiased way to vote for new committee leaders. The system was incredibly simple for older members to use, even on phones. The support team helped us set everything up quickly. The voting was private, fair, and accessible — exactly what we needed.”</p>
+                        <div class="client-info d-flex align-items-center mt-4">
+                        <img src="{% static 'assets/img/person/person-m-1.webp' %}" class="client-img" alt="Client" loading="lazy">
+                        <div>
+                          <h6 class="mb-0">David Kim</h6>
+                          <span>Bishop</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="rating mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                        <p>“As a small non-profit, we needed a reliable way to gather votes from board members located around the country. This system exceeded our expectations. Every member received a unique secure link, and the audit trail feature gave us peace of mind. It saved us hours of coordination and improved accountability across the board.”</p>
+                        <div class="client-info d-flex align-items-center mt-4">
+                        <img src="{% static 'assets/img/person/person-f-2.webp' %}" class="client-img" alt="Client" loading="lazy">
+                        <div>
+                          <h6 class="mb-0">Isabella Diaz</h6>
+                          <span>Research Analyst</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="rating mb-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      </div>
+                        <p>“Our company used the online voting system to conduct anonymous staff surveys and departmental elections. It improved trust because employees could vote freely without pressure. The dashboard is very intuitive, and results are presented clearly. It’s now an essential tool in our decision-making.”</p>
+                        <div class="client-info d-flex align-items-center mt-4">
+                        <img src="{% static 'assets/img/person/person-f-3.webp' %}" class="client-img" alt="Client" loading="lazy">
+                        <div>
+                          <h6 class="mb-0">Olivia Chen</h6>
+                          <span>Development Manager</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <div><span>Check Our</span> <span class="description-title">Services</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="service-header">
+          <div class="row align-items-center">
+            <div class="col-lg-8 col-md-12">
+              <div class="service-intro">
+                <h2 class="service-heading">
+                  <div>Innovative business</div>
+                  <div><span>performance solutions</span></div>
+                </h2>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="service-summary">
+                <p>
+                  We integrate forward-thinking strategies, creative approaches, and state-of-the-art technologies to deliver exceptional customer experiences that drive growth and engage target markets.
+                </p>
+                <a href="{% url 'SmartBallot:services' %}" class="service-btn">
+                  View All Services
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card position-relative z-1">
+              <div class="service-icon">
+                <i class="bi bi-gear-fill"></i>
+              </div>
+              <a href="{% url 'SmartBallot:services' %}#service-details-tab-1" class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+              <h3>
+                <a href="{% url 'SmartBallot:services' %}#service-details-tab-1" id="manage-elections">
+                  Manage <span>Elections</span>
+                </a>
+              </h3>
+              <p>
+                  We provide reliable and flexible election management solutions designed to meet the needs of organizations of all sizes. Our system supports multiple voting methods, ensuring inclusivity, transparency, and efficiency while maintaining the highest standards of security and accuracy.
+{#                Nulla facilisi. Maecenas eget magna neque. Suspendisse potenti. Curabitur eleifend nisi non magna vulputate, vel condimentum libero tempus. Proin consectetur feugiat diam.#}
+              </p>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card position-relative z-1">
+              <div class="service-icon">
+                <i class="bi bi-laptop"></i>
+              </div>
+              <a href="{% url 'SmartBallot:services' %}#service-details-tab-2" class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+              <h3>
+                <a href="{% url 'SmartBallot:services' %}#service-details-tab-2">
+                  Online <span>Voting</span>
+                </a>
+              </h3>
+              <p>
+                  Online voting provides a fast, modern, and highly efficient way to conduct elections. Voters can securely cast their votes from anywhere using a computer, tablet, or smartphone. Our online voting platform incorporates strong authentication, encrypted data transmission, and real-time monitoring to protect election integrity
+{#                Praesent euismod varius tellus, vel bibendum nunc interdum at. Donec vehicula diam vel metus venenatis convallis. Aliquam erat volutpat. Etiam viverra magna sit amet.#}
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card position-relative z-1">
+              <div class="service-icon">
+                <i class="bi bi-file-text-fill"></i>
+              </div>
+              <a href="{% url 'SmartBallot:services' %}#service-details-tab-3" class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+              <h3>
+                <a href="{% url 'SmartBallot:services' %}#service-details-tab-3">
+                  Paper <span>Ballot</span>
+                </a>
+              </h3>
+              <p>
+                  Paper ballot voting remains one of the most trusted and widely used methods of conducting elections. It is especially suitable for organizations that prefer a physical voting process or operate in areas with limited access to technology. Our paper ballot management process ensures proper voter registration, secure ballot distribution, and accurate vote counting.
+{#                Vivamus tempor velit id magna dictum, sed fermentum nisi faucibus. Integer nec pretium sapien. Fusce tincidunt ligula et purus consequat, ac pellentesque nulla eleifend.#}
+              </p>
+            </div>
+          </div>
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">#}
+{#            <div class="service-card position-relative z-1">#}
+{#              <div class="service-icon">#}
+{#                <i class="bi bi-person-badge-fill"></i>#}
+{#              </div>#}
+{#              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">#}
+{#                <i class="bi bi-arrow-up-right"></i>#}
+{#              </a>#}
+{#              <h3>nations#}
+{#                </a>#}
+{#              </h3>#}
+{#              <p>#}
+{#                Cras fermentum odio eu feugiat malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et accumsan cursus. Morbi placerat nulla vel nunc viverra accumsan.#}
+{#              </p>#}
+{#            </div>#}
+{#          </div>#}
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card position-relative z-1">
+              <div class="service-icon">
+                <i class="bi bi-telephone-fill"></i>
+              </div>
+              <a href="{% url 'SmartBallot:services' %}#service-details-tab-4" class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+              <h3>
+                <a href="{% url 'SmartBallot:services' %}#service-details-tab-4">
+                  Telephone <span> Voting</span>
+                </a>
+              </h3>
+              <p>
+                  Telephone voting offers a convenient and accessible option for voters who may not have internet access or who prefer voice-based interaction. This method is ideal for reaching remote voters, elderly participants, or members with disabilities.
+{#                Aenean vel augue vel nisi bibendum posuere. Phasellus in lacus quis urna sodales dignissim. Duis aliquam libero eget risus facilisis. Quisque eget libero vel nisl fringilla.#}
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Steps Section -->
+    <section id="steps" class="steps section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Steps</h2>
+        <div><span>How we</span> <span class="description-title">Work</span></div>
+      </div><!-- End Section Title -->
+        <p>Our online voting system is flexible to meet the unique needs of our customers, so the details may vary from client to client and from election to election. But all internet voting projects follow the same basic flow.</p>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="steps-wrapper">
+
+          <div class="step-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <div class="step-info">
+                <span class="step-number">Step 01</span>
+                <h3>Election Set-Up</h3>
+                <p>By utilizing our intuitive Election Manager, you’re able to define your election including the dates, times, and ballot questions. You also select a preferred voter authentication method and upload your list of eligible voters. For those needing assistance or in a time crunch, our responsive support team is available to guide you through the process or, as a premium service, manage the entire process on your behalf.</p>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
+
+          <div class="step-item" data-aos="fade-left" data-aos-delay="300">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-gear"></i>
+              </div>
+              <div class="step-info">
+                <span class="step-number">Step 02</span>
+                <h3>Voting</h3>
+                <p>At your branded voting website, voters will log into the online voting system according to the authentication method chosen during set-up. Once authenticated, if they haven’t already voted, the voter is presented with a tamper-proof electronic ballot (or a choice of ballots, if there are several ongoing elections). Each vote is encrypted to ensure anonymity. A receipt is then issued to the voter, who cannot vote in the same election again.</p>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
+
+            <div class="step-item" data-aos="fade-left" data-aos-delay="500">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-check2-circle"></i>
+              </div>
+              <div class="step-info">
+                <span class="step-number">Step 03</span>
+                <h3>Monitoring & Security Checks</h3>
+                <p>Throughout the voting period, the system continuously monitors activity to detect irregularities such as multiple login attempts, suspicious patterns, or unauthorized access. Real-time dashboards allow administrators to track turnout, verify system health, and ensure a smooth and secure election process. Automated alerts notify the team of any anomalies, ensuring rapid response and maximum integrity.</p>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
+
+          <div class="step-item" data-aos="fade-right" data-aos-delay="400">
+            <div class="step-content">
+              <div class="step-icon">
+                <i class="bi bi-bar-chart"></i>
+              </div>
+              <div class="step-info">
+                <span class="step-number">Step 04</span>
+                <h3>Results</h3>
+                <p>Upon conclusion of the voting period, results are instantaneously tabulated. These can be swiftly reviewed in the Election Manager, alongside an array of reports on voting activities, prior to their release. After publication, the results are displayed publicly on your voting website, and for further transparency, anyone can verify the results by downloading a file containing the votes and corresponding receipt codes.</p>
+              </div>
+            </div>
+          </div><!-- End Step Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Steps Section -->
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="advertise-1 d-flex flex-column flex-lg-row gap-4 align-items-center position-relative">
+
+          <div class="content-left flex-grow-1" data-aos="fade-right" data-aos-delay="200">
+            <span class="badge text-uppercase mb-2">Don't Miss!</span>
+            <h2>Let us manage it for you</h2>
+            <p class="my-4">Your voting event will be handled comprehensively and impartially by a dedicated team that specializes in online voting solutions.</p>
+            <p class="my-4">No software to deal with, just a helpful and friendly project manager who really cares about your voting event and is just a phone call away.</p>
+
+<!--            <div class="features d-flex flex-wrap gap-3 mb-4">-->
+<!--              <div class="feature-item">-->
+<!--                <i class="bi bi-check-circle-fill"></i>-->
+<!--                <span>Premium Support</span>-->
+<!--              </div>-->
+<!--              <div class="feature-item">-->
+<!--                <i class="bi bi-check-circle-fill"></i>-->
+<!--                <span>Cloud Integration</span>-->
+<!--              </div>-->
+<!--              <div class="feature-item">-->
+<!--                <i class="bi bi-check-circle-fill"></i>-->
+<!--                <span>Real-time Analytics</span>-->
+<!--              </div>-->
+<!--            </div>-->
+              <p class="my-4">An online voting system you can trust.</p>
+
+            <div class="cta-buttons d-flex flex-wrap gap-3">
+              <a href="#" class="btn btn-primary">Start Free Trial</a>
+              <a href="#" class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+
+          <div class="content-right position-relative" data-aos="fade-left" data-aos-delay="300">
+            <img src="{% static 'assets/img/misc/misc-1.webp' %}" alt="Digital Platform" class="img-fluid rounded-4">
+            <div class="floating-card">
+              <div class="card-icon">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <div class="card-content">
+                <span class="stats-number">245%</span>
+                <span class="stats-text">Growth Rate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="decoration">
+            <div class="circle-1"></div>
+            <div class="circle-2"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Call To Action Section -->
+
+<!--      SECURITY REGION-->
+       <section id="security" class="call-to-action section, steps section">
+      <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
+          <h2>Security</h2>
+
+        <div class="advertise-1 d-flex flex-column flex-lg-row gap-4 align-items-center position-relative">
+
+          <div class="content-left flex-grow-1" data-aos="fade-right" data-aos-delay="200">
+            <h3>Impeccable & Secure</h3>
+            <p class="my-4">Smart Ballot state-of-the-art security system protects your elections from any malicious meddling attempts and guarantees that double voting is Impossible</p>
+            <p class="my-4">Each vote is encrypted with a distributed encryption key before leaving the voter's device. As the encryption key is distributed, it is impossible for any malicious user to decrypt the votes.</p>
+              <p class="my-4">After voting closes, all votes are anonymized before being decrypted and tallied using secure cryptographic algorithms, ensuring that no vote can be linked to any voter.</p>
+                   <a href="#security">Learn more about how vote privacy & anonymity is maintained</a>
+          </div>
+
+          <div class="content-right position-relative" data-aos="fade-left" data-aos-delay="300">
+            <img src="{% static 'assets/img/misc/ballot-box.jpg' %}" alt="Digital Platform" class="img-fluid rounded-4">
+{#            <div class="floating-card">#}
+{#              <div class="card-icon">#}
+{#                <i class="bi bi-graph-up-arrow"></i>#}
+{#              </div>#}
+{#              <div class="card-content">#}
+{#                <span class="stats-number">245%</span>#}
+{#                <span class="stats-text">Growth Rate</span>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+
+{#          <div class="decoration">#}
+{#            <div class="circle-1"></div>#}
+{#            <div class="circle-2"></div>#}
+{#          </div>#}
+      </div>
+      </div>
+
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <div><span>Check Our</span> <span class="description-title">Testimonials</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="testimonials-slider swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "slidesPerView": 1,
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              }
+            }
+          </script>
+
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <h2>National Students Union (NSU)</h2>
+                    <p>
+                      "For the first time in our 50-year history, we conducted a fully digital election. The platform was secure, fast, and transparent. Turnout increased by 37%. We’re never going back to manual voting again!"</p>
+                    <p>
+                      "As someone who’s never trusted digital elections, this platform changed my mind. The transparency and receipts made me confident my vote counted."</p>
+                    <div class="profile d-flex align-items-center">
+                      <img src="{% static 'assets/img/person/cynthia.jpg' %}" class="profile-img" alt="">
+                      <div class="profile-info">
+                        <h3>Cynthia Mwenda</h3>
+                        <span>NSU Secretary General</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="featured-img-wrapper">
+                      <img src="{% static 'assets/img/person/cynthia.jpg' %}" class="featured-img" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Testimonial Item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <h2>GreenFuture Political Party</h2>
+                    <p>
+                      Our party primaries used to be chaotic and expensive. This system simplified the entire process and restored trust among members. The audit trail alone is a game-changer.</p>
+                    <p>
+                       Elections used to take the whole day. With the online system, everyone voted from home in minutes. Even senior Leaders found it easy to use.</p>
+                    <div class="profile d-flex align-items-center">
+                      <img src="{% static 'assets/img/person/person-f-1.webp' %}" class="profile-img" alt="">
+                      <div class="profile-info">
+                        <h3>Hon. Trevor Okoth</h3>
+                        <span>National Chairperson</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="featured-img-wrapper">
+                      <img src="{% static 'assets/img/person/person-f-1.webp' %}" class="featured-img" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Testimonial Item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <h2>
+                      Kenya Teachers Welfare Association
+                    </h2>
+                    <p>
+                      Over 12,000 teachers voted seamlessly from their phones. No long queues, no disputes, no delays. The results were instant and credible.</p>
+                    <p>
+                      In the elections, we wanted security and confidentiality. The encryption and verification process exceeded our expectations.</p>
+                    <div class="profile d-flex align-items-center">
+                      <img src="{% static 'assets/img/person/amani.jpg' %}" class="profile-img" alt="">
+                      <div class="profile-info">
+                        <h3>Amani</h3>
+                        <span>Elections Committee Lead</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="featured-img-wrapper">
+                      <img src="{% static 'assets/img/person/amani.jpg' %}" class="featured-img" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Testimonial Item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <h2>Africa Youth Innovators Forum</h2>
+                    <p>
+                      The branded voting website made our event look professional. Delegates from 17 countries participated without a single complaint</p>
+                    <p>
+                       The online elections saved us money and time. We saw the largest voter turnout in the institution’s history.</p>
+                    <div class="profile d-flex align-items-center">
+                      <img src="{% static 'assets/img/person/person-m-7.webp' %}" class="profile-img" alt="">
+                      <div class="profile-info">
+                        <h3>Kevan Mativo</h3>
+                        <span>Event Director</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="featured-img-wrapper">
+                      <img src="{% static 'assets/img/person/person-m-7.webp' %}" class="featured-img" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Testimonial Item -->
+
+          </div>
+
+          <div class="swiper-navigation w-100 d-flex align-items-center justify-content-center">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Who We Serve</h2>
+        <div><span>The industries</span> <span class="description-title">We Serve</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
+            <li data-filter="*" class="filter-active">
+              <i class="bi bi-people-fill"></i><a href="{% url 'SmartBallot:portfolio-details' %}#all categories">All Categories</a>
+            </li>
+              <li data-filter=".filter-ui" >
+                  <i class="bi bi-people-fill"></i><a href="{% url 'SmartBallot:portfolio-details' %}#unions"> Unions</a>
+            </li>
+            <li data-filter=".filter-ui">
+                <i class="bi bi-geo-alt"></i><a href="{% url 'SmartBallot:portfolio-details' %}#governments"> Governments</a>
+            </li>
+            <li data-filter=".filter-development">
+                <i class="bi bi-bank"></i><a href="{% url 'SmartBallot:portfolio-details' %}#political">Political Parties</a>
+            </li>
+            <li data-filter=".filter-photography">
+                <i class="bi bi-camera"></i> <a href="{% url 'SmartBallot:portfolio-details' %}#sports">Sports & Leisure Clubs</a>
+            </li>
+            <li data-filter=".filter-marketing">
+                <i class="bi bi-briefcase-fill"></i><a href="{% url 'SmartBallot:portfolio-details' %}#corporate"> Corporate & Shareholders</a>
+            </li>
+              <li data-filter=".filter-marketing">
+                  <i class="bi bi-building"></i><a href="{% url 'SmartBallot:portfolio-details' %}#membership"> Membership Organizations</a>
+            </li>
+              <li data-filter=".filter-marketing">
+                  <i class="bi bi-mortarboard-fill"></i><a href="{% url 'SmartBallot:portfolio-details' %}#education">Education</a>
+              </li>
+              <li data-filter=".filter-marketing">
+                  <i class="bi bi-buildings-fill"></i><a href="{% url 'SmartBallot:portfolio-details' %}#others"> Other Organizations</a>
+            </li>
+          </ul>
+
+{#          <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300">#}
+{##}
+{#            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-ui">#}
+{#              <article class="portfolio-entry">#}
+{#                <figure class="entry-image">#}
+{#                  <img src="{% static 'assets/img/portfolio/portfolio-1.webp' %}" class="img-fluid" alt="" loading="lazy">#}
+{#                  <div class="entry-overlay">#}
+{#                    <div class="overlay-content">#}
+{#                      <div class="entry-meta">Unions</div>#}
+{#                      <h3 class="entry-title">Mobile Banking App</h3>#}
+{#                      <div class="entry-links">#}
+{#                        <a href="{% static 'assets/img/portfolio/portfolio-1.webp' %}" class="glightbox" data-gallery="portfolio-gallery-ui" data-glightbox="title: Mobile Banking App; description: Praesent commodo cursus magna, vel scelerisque nisl consectetur.">#}
+{#                          <i class="bi bi-arrows-angle-expand"></i>#}
+{#                        </a>#}
+{#                        <a href="portfolio-details.html#unions">#}
+{#                          <i class="bi bi-arrow-right"></i>#}
+{#                        </a>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </figure>#}
+{#              </article>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-development">#}
+{#              <article class="portfolio-entry">#}
+{#                <figure class="entry-image">#}
+{#                  <img src="{% static 'assets/img/portfolio/portfolio-10.webp' %}" class="img-fluid" alt="" loading="lazy">#}
+{#                  <div class="entry-overlay">#}
+{#                    <div class="overlay-content">#}
+{#                      <div class="entry-meta">Development</div>#}
+{#                      <h3 class="entry-title">E-Learning Platform</h3>#}
+{#                      <div class="entry-links">#}
+{#                        <a href="{% static 'assets/img/portfolio/portfolio-10.webp' %}" class="glightbox" data-gallery="portfolio-gallery-development" data-glightbox="title: E-Learning Platform; description: Nulla vitae elit libero, a pharetra augue mollis interdum.">#}
+{#                          <i class="bi bi-arrows-angle-expand"></i>#}
+{#                        </a>#}
+{#                        <a href="portfolio-details.html">#}
+{#                          <i class="bi bi-arrow-right"></i>#}
+{#                        </a>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </figure>#}
+{#              </article>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-photography">#}
+{#              <article class="portfolio-entry">#}
+{#                <figure class="entry-image">#}
+{#                  <img src="{% static 'assets/img/portfolio/portfolio-7.webp' %}" class="img-fluid" alt="" loading="lazy">#}
+{#                  <div class="entry-overlay">#}
+{#                    <div class="overlay-content">#}
+{#                      <div class="entry-meta">Photography</div>#}
+{#                      <h3 class="entry-title">Urban Architecture</h3>#}
+{#                      <div class="entry-links">#}
+{#                        <a href="{% static 'assets/img/portfolio/portfolio-7.webp' %}" class="glightbox" data-gallery="portfolio-gallery-photography" data-glightbox="title: Urban Architecture; description: Sed ut perspiciatis unde omnis iste natus error sit voluptatem.">#}
+{#                          <i class="bi bi-arrows-angle-expand"></i>#}
+{#                        </a>#}
+{#                        <a href="portfolio-details.html">#}
+{#                          <i class="bi bi-arrow-right"></i>#}
+{#                        </a>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </figure>#}
+{#              </article>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-marketing">#}
+{#              <article class="portfolio-entry">#}
+{#                <figure class="entry-image">#}
+{#                  <img src="{% static 'assets/img/portfolio/portfolio-4.webp' %}" class="img-fluid" alt="" loading="lazy">#}
+{#                  <div class="entry-overlay">#}
+{#                    <div class="overlay-content">#}
+{#                      <div class="entry-meta">Marketing</div>#}
+{#                      <h3 class="entry-title">Social Media Campaign</h3>#}
+{#                      <div class="entry-links">#}
+{#                        <a href="{% static 'assets/img/portfolio/portfolio-4.webp' %}" class="glightbox" data-gallery="portfolio-gallery-marketing" data-glightbox="title: Social Media Campaign; description: Quis autem vel eum iure reprehenderit qui in ea voluptate.">#}
+{#                          <i class="bi bi-arrows-angle-expand"></i>#}
+{#                        </a>#}
+{#                        <a href="portfolio-details.html">#}
+{#                          <i class="bi bi-arrow-right"></i>#}
+{#                        </a>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </figure>#}
+{#              </article>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-ui">#}
+{#              <article class="portfolio-entry">#}
+{#                <figure class="entry-image">#}
+{#                  <img src="{% static 'assets/img/portfolio/portfolio-2.webp' %}" class="img-fluid" alt="" loading="lazy">#}
+{#                  <div class="entry-overlay">#}
+{#                    <div class="overlay-content">#}
+{#                      <div class="entry-meta">UI/UX Design</div>#}
+{#                      <h3 class="entry-title">Smart Home Interface</h3>#}
+{#                      <div class="entry-links">#}
+{#                        <a href="{% static 'assets/img/portfolio/portfolio-2.webp' %}" class="glightbox" data-gallery="portfolio-gallery-ui" data-glightbox="title: Smart Home Interface; description: At vero eos et accusamus et iusto odio dignissimos ducimus.">#}
+{#                          <i class="bi bi-arrows-angle-expand"></i>#}
+{#                        </a>#}
+{#                        <a href="portfolio-details.html">#}
+{#                          <i class="bi bi-arrow-right"></i>#}
+{#                        </a>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </figure>#}
+{#              </article>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-development">#}
+{#              <article class="portfolio-entry">#}
+{#                <figure class="entry-image">#}
+{#                  <img src="{% static 'assets/img/portfolio/portfolio-11.webp' %}" class="img-fluid" alt="" loading="lazy">#}
+{#                  <div class="entry-overlay">#}
+{#                    <div class="overlay-content">#}
+{#                      <div class="entry-meta">Development</div>#}
+{#                      <h3 class="entry-title">Cloud Management System</h3>#}
+{#                      <div class="entry-links">#}
+{#                        <a href="{% static 'assets/img/portfolio/portfolio-11.webp' %}" class="glightbox" data-gallery="portfolio-gallery-development" data-glightbox="title: Cloud Management System; description: Temporibus autem quibusdam et aut officiis debitis.">#}
+{#                          <i class="bi bi-arrows-angle-expand"></i>#}
+{#                        </a>#}
+{#                        <a href="portfolio-details.html">#}
+{#                          <i class="bi bi-arrow-right"></i>#}
+{#                        </a>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </figure>#}
+{#              </article>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-photography">#}
+{#              <article class="portfolio-entry">#}
+{#                <figure class="entry-image">#}
+{#                  <img src="{% static 'assets/img/portfolio/portfolio-8.webp' %}" class="img-fluid" alt="" loading="lazy">#}
+{#                  <div class="entry-overlay">#}
+{#                    <div class="overlay-content">#}
+{#                      <div class="entry-meta">Photography</div>#}
+{#                      <h3 class="entry-title">Nature Collection</h3>#}
+{#                      <div class="entry-links">#}
+{#                        <a href="{% static 'assets/img/portfolio/portfolio-8.webp' %}" class="glightbox" data-gallery="portfolio-gallery-photography" data-glightbox="title: Nature Collection; description: Integer posuere erat a ante venenatis dapibus posuere velit aliquet.">#}
+{#                          <i class="bi bi-arrows-angle-expand"></i>#}
+{#                        </a>#}
+{#                        <a href="portfolio-details.html">#}
+{#                          <i class="bi bi-arrow-right"></i>#}
+{#                        </a>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </figure>#}
+{#              </article>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-marketing">#}
+{#              <article class="portfolio-entry">#}
+{#                <figure class="entry-image">#}
+{#                  <img src="{% static 'assets/img/portfolio/portfolio-5.webp' %}" class="img-fluid" alt="" loading="lazy">#}
+{#                  <div class="entry-overlay">#}
+{#                    <div class="overlay-content">#}
+{#                      <div class="entry-meta">Marketing</div>#}
+{#                      <h3 class="entry-title">Brand Strategy</h3>#}
+{#                      <div class="entry-links">#}
+{#                        <a href="{% static 'assets/img/portfolio/portfolio-5.webp' %}" class="glightbox" data-gallery="portfolio-gallery-marketing" data-glightbox="title: Brand Strategy; description: Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.">#}
+{#                          <i class="bi bi-arrows-angle-expand"></i>#}
+{#                        </a>#}
+{#                        <a href="portfolio-details.html">#}
+{#                          <i class="bi bi-arrow-right"></i>#}
+{#                        </a>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </figure>#}
+{#              </article>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#          </div><!-- End Portfolio Container -->#}
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Pricing</h2>
+        <div><span>Check Our</span> <span class="description-title">Pricing</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-3">
+<!--            Starter Plan-->
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pricing-card">
+              <div class="plan-header">
+                <div class="plan-icon">
+                  <i class="bi bi-box"></i>
+                </div>
+                <h3>Starter</h3>
+                <p>Best for: Small groups, class representatives, clubs, trials.</p>
+              </div>
+              <div class="plan-pricing">
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">0</span>
+<!--                  <span class="period">/month</span>-->
+                </div>
+              </div>
+              <div class="plan-features">
+                <ul>
+                    <li><i class="bi bi-check-circle-fill"></i> Up to 20 voters</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Simple election setup</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Single ballot creation</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Instant automatic results</li>
+                    <li><i class="bi bi-check-circle-fill"></i>Basic admin dashboard</li>
+                  <li class="disabled"><i class="bi bi-x-circle-fill"></i>Multiple ballot questions</li>
+                  <li class="disabled"><i class="bi bi-x-circle-fill"></i> Standard authentication (email or access code)</li>
+                </ul>
+              </div>
+              <div class="plan-cta">
+                <a href="#" class="btn-plan">Choose Plan</a>
+              </div>
+            </div>
+          </div><!-- End Starter Plan -->
+          <!-- Basic Plan -->
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pricing-card">
+              <div class="plan-header">
+                <div class="plan-icon">
+                  <i class="bi bi-box"></i>
+                </div>
+                <h3>Basic Plan</h3>
+                <p>Best for: Small organizations, SACCOs, small unions, student groups.</p>
+              </div>
+              <div class="plan-pricing">
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">9</span>
+                  <span class="period">/month</span>
+                </div>
+              </div>
+              <div class="plan-features">
+                <ul>
+                  <li><i class="bi bi-check-circle-fill"></i> Up to 200 voters</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Voter notification emails</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Voter eligibility list upload</li>
+                    <li><i class="bi bi-check-circle-fill"></i>Improved admin reporting & result exports</li>
+                    <li><i class="bi bi-check-circle-fill"></i>Priority email support</li>
+                  <li class="disabled"><i class="bi bi-x-circle-fill"></i> Voter reminders (email/SMS)</li>
+                  <li class="disabled"><i class="bi bi-x-circle-fill"></i> Online support & troubleshooting</li>
+                </ul>
+              </div>
+              <div class="plan-cta">
+                <a href="#" class="btn-plan">Choose Plan</a>
+              </div>
+            </div>
+          </div><!-- End Basic Plan -->
+
+          <!-- Professional Plan -->
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+            <div class="pricing-card popular">
+              <div class="popular-tag">Most Popular</div>
+              <div class="plan-header">
+                <div class="plan-icon">
+                  <i class="bi bi-briefcase"></i>
+                </div>
+                <h3>Professional</h3>
+                <p>Best for: Universities, medium unions, professional associations, corporate elections.</p>
+              </div>
+              <div class="plan-pricing">
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">39</span>
+                  <span class="period">/month</span>
+                </div>
+              </div>
+              <div class="plan-features">
+                <ul>
+                  <li><i class="bi bi-check-circle-fill"></i> Up to 1,000 voters</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Nomination & candidate approval system</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Real-time voting dashboard & statistics</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Online support & troubleshooting</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Downloadable audit logs</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Customizable ballot design</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Multi-ballot support for separate positions</li>
+                  <li class="disabled"><i class="bi bi-x-circle-fill"></i> Multi-language ballots</li>
+                </ul>
+              </div>
+              <div class="plan-cta">
+                <a href="#" class="btn-plan">Choose Plan</a>
+              </div>
+            </div>
+          </div><!-- End Professional Plan -->
+
+          <!-- Enterprise Plan -->
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="pricing-card">
+              <div class="plan-header">
+                <div class="plan-icon">
+                  <i class="bi bi-building"></i>
+                </div>
+                <h3>Enterprise</h3>
+                <p>Best for: National organizations, large unions, political parties, government institutions, mega elections.</p>
+              </div>
+              <div class="plan-pricing">
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">79</span>
+                  <span class="period">/month</span>
+                </div>
+              </div>
+              <div class="plan-features">
+                <ul>
+                  <li><i class="bi bi-check-circle-fill"></i> Unlimited or high-volume voters</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Hybrid elections (online + paper + telephone)</li>
+                  <li><i class="bi bi-check-circle-fill"></i> End-to-end encryption with advanced security</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Dedicated election manager</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Integration with existing systems</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Custom reporting & analytics</li>
+                </ul>
+              </div>
+              <div class="plan-cta">
+                <a href="#" class="btn-plan">Choose Plan</a>
+              </div>
+            </div>
+          </div><!-- End Enterprise Plan -->
+        </div>
+
+      </div>
+
+    </section><!-- /Pricing Section -->
+
+    <!-- Faq Section -->
+    <section class="faq-9 faq section" id="faq">
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-5" data-aos="fade-up">
+            <h2 class="faq-title">Have a question? Check out the FAQ</h2>
+            <p class="faq-description">Some of the most frequent questions asked</p>
+            <div class="faq-arrow d-none d-lg-block" data-aos="fade-up" data-aos-delay="200">
+              <svg class="faq-arrow" width="200" height="211" viewBox="0 0 200 211" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M198.804 194.488C189.279 189.596 179.529 185.52 169.407 182.07L169.384 182.049C169.227 181.994 169.07 181.939 168.912 181.884C166.669 181.139 165.906 184.546 167.669 185.615C174.053 189.473 182.761 191.837 189.146 195.695C156.603 195.912 119.781 196.591 91.266 179.049C62.5221 161.368 48.1094 130.695 56.934 98.891C84.5539 98.7247 112.556 84.0176 129.508 62.667C136.396 53.9724 146.193 35.1448 129.773 30.2717C114.292 25.6624 93.7109 41.8875 83.1971 51.3147C70.1109 63.039 59.63 78.433 54.2039 95.0087C52.1221 94.9842 50.0776 94.8683 48.0703 94.6608C30.1803 92.8027 11.2197 83.6338 5.44902 65.1074C-1.88449 41.5699 14.4994 19.0183 27.9202 1.56641C28.6411 0.625793 27.2862 -0.561638 26.5419 0.358501C13.4588 16.4098 -0.221091 34.5242 0.896608 56.5659C1.8218 74.6941 14.221 87.9401 30.4121 94.2058C37.7076 97.0203 45.3454 98.5003 53.0334 98.8449C47.8679 117.532 49.2961 137.487 60.7729 155.283C87.7615 197.081 139.616 201.147 184.786 201.155L174.332 206.827C172.119 208.033 174.345 211.287 176.537 210.105C182.06 207.125 187.582 204.122 193.084 201.144C193.346 201.147 195.161 199.887 195.423 199.868C197.08 198.548 193.084 201.144 195.528 199.81C196.688 199.192 197.846 198.552 199.006 197.935C200.397 197.167 200.007 195.087 198.804 194.488ZM60.8213 88.0427C67.6894 72.648 78.8538 59.1566 92.1207 49.0388C98.8475 43.9065 106.334 39.2953 114.188 36.1439C117.295 34.8947 120.798 33.6609 124.168 33.635C134.365 33.5511 136.354 42.9911 132.638 51.031C120.47 77.4222 86.8639 93.9837 58.0983 94.9666C58.8971 92.6666 59.783 90.3603 60.8213 88.0427Z" fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="300">
+            <div class="faq-container">
+
+              <div class="faq-item faq-active">
+                <h3>How do I pay?</h3>
+                <div class="faq-content">
+                  <p>SmartBallot offers simple and flexible payment options to make the process convenient for every organization. Once you choose a pricing plan, you can pay securely using mobile money, bank transfer, debit/credit card, or PayPal—depending on your region. After payment is confirmed, your account is activated immediately, and you gain full access to your selected features.
+For organizations running multiple elections or requiring custom setups, we also provide invoice-based billing, allowing you to pay after receiving an official quotation. Our payment process is safe, fast, and fully encrypted to protect your financial information at every step.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>What if I have several elections?</h3>
+                <div class="faq-content">
+                    <p>SmartBallot is designed to handle multiple elections at the same time without confusion. Each election you create can have its own dates, rules, voter list, and ballot structure. If the same voter is eligible for more than one election, the system will clearly display all available ballots and allow them to vote in each one individually—ensuring no overlap or accidental duplication.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Is online voting secure?</h3>
+                <div class="faq-content">
+                    <p>Yes. Modern online voting systems use advanced security measures such as encryption, multi-factor authentication, unique voter IDs, and secure vote storage to protect the integrity of the election. These systems are built to prevent unauthorized access, duplicate voting, and tampering, ensuring that every vote cast is both valid and anonymous.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Can people vote more than once?</h3>
+                <div class="faq-content">
+                  <p>No. Each voter is allowed to cast one vote only. After submitting their ballot, the system locks the voter’s profile, preventing any further voting attempts. This ensures fairness and prevents manipulation, even if a voter tries to re-enter the system using the same or different device.<p/>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>How is voter privacy protected?</h3>
+                <div class="faq-content">
+                    <p>Online voting systems separate voter identity from their actual vote using encryption and anonymization techniques. This means the system confirms that a person voted, but not how they voted. No administrator, developer, or third party can trace a ballot back to the voter, ensuring full confidentiality.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+                <div class="faq-item">
+                <h3>How are results calculated?</h3>
+                <div class="faq-content">
+                    <p>Once the election ends, the system automatically tabulates all votes instantly with no human interference. Administrators can review the results through the dashboard, download detailed reports, and publish the outcome immediately. This removes manual counting errors and speeds up the entire results process.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3> Why choose online voting over traditional methods?</h3>
+                <div class="faq-content">
+                    <p>Online voting offers convenience, speed, and cost efficiency. It eliminates printing costs, reduces administrative workload, increases voter participation, and provides real-time monitoring. The user-friendly interface also ensures smoother elections with fewer errors and faster results compared to manual ballot handling</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Faq Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <div><span>Let's</span> <span class="description-title">Connect</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Contact Info Boxes -->
+        <div class="row gy-4 mb-5">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-info-box">
+              <div class="icon-box">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="info-content">
+                <h4>Our Address</h4>
+                <p>67th street Juja Kiambu County</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="contact-info-box">
+              <div class="icon-box">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="info-content">
+                <h4>Email Address</h4>
+                <p>smartballot@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="contact-info-box">
+              <div class="icon-box">
+                <i class="bi bi-headset"></i>
+              </div>
+              <div class="info-content">
+                <h4>Hours of Operation</h4>
+                <p>Sunday-Fri: 9 AM - 6 PM</p>
+                <p>Saturday: 9 AM - 4 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Google Maps (Full Width) -->
+      <div class="map-section" data-aos="fade-up" data-aos-delay="200">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- Contact Form Section (Overlapping) -->
+        {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+      <div class="container form-container-overlap">
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-10">
+            <div class="contact-form-wrapper">
+              <h2 class="text-center mb-4">Get in Touch</h2>
+
+              <form method="post" action="{% url 'SmartBallot:home' %}">
+                  {% csrf_token %}
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-person"></i>
+                        <input type="text" name="name" class="form-control" placeholder="First Name" required>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-envelope"></i>
+                        <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-text-left"></i>
+                        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-chat-dots message-icon"></i>
+                        <textarea class="form-control" name="message" placeholder="Write Message..." style="height: 180px" required=""></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+{#                  <div class="col-12">#}
+{#                    <div class="loading">Loading</div>#}
+{#                    <div class="error-message"></div>#}
+{#                    <div class="sent-message">Your message has been sent. Thank you!</div>#}
+{#                  </div>#}
+
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-submit">SEND MESSAGE</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+    <style>
+    footer {
+  font-size: 14px;
+}
+
+.footer h4,
+.footer h6 {
+  color: #ffffff;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-links a:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+    </style>
+    <footer class="footer bg-dark text-light pt-5">
+  <div class="container">
+    <div class="row gy-4">
+
+      <!-- BRAND -->
+      <div class="col-lg-4 col-md-6">
+        <h4 class="fw-bold">SmartBallot</h4>
+        <p class="small text-muted">
+          Secure, transparent, and reliable online voting for organizations, institutions, and communities.
+        </p>
+
+        <p class="small">
+          🔒 End-to-end encrypted<br>
+          🛡 Data protection compliant<br>
+          ✅ Auditable elections
+        </p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="col-lg-2 col-md-6">
+        <h6 class="text-uppercase fw-bold mb-3">Quick Links</h6>
+        <ul class="list-unstyled footer-links">
+          <li><a href="{% url 'SmartBallot:home' %}">Home</a></li>
+          <li><a href="{% url 'SmartBallot:home' %}#about">About</a></li>
+          <li><a href="{% url 'SmartBallot:home' %}#services">Solutions</a></li>
+     <li><a href="{% url 'SmartBallot:home' %}#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- VOTERS -->
+      <div class="col-lg-3 col-md-6">
+        <h6 class="text-uppercase fw-bold mb-3">For Voters</h6>
+        <ul class="list-unstyled footer-links">
+          <li>✔ Secure login</li>
+          <li>✔ One vote per voter</li>
+          <li>✔ Anonymous ballots</li>
+          <li>✔ Real-time confirmation</li>
+        </ul>
+      </div>
+
+      <!-- ACCOUNT / ADMIN -->
+      <div class="col-lg-3 col-md-6">
+        <h6 class="text-uppercase fw-bold mb-3">Account</h6>
+     {% if user.is_authenticated %}
+          <ul class="list-unstyled footer-links">
+            <li><a href="{% url 'Election:dashboard' %}">Election Dashboard</a></li>
+            <li><a href="{% url 'Election:dashboard' %}">Manage Elections</a></li>
+            <li><a href="/accounts/logout/">Logout</a></li>
+          </ul>
+        {% else %}
+          <ul class="list-unstyled footer-links">
+            <li><a href="/accounts/login/">Login</a></li>
+            <li><a href="/accounts/register/">Register</a></li>
+          </ul>
+        {% endif %}
+      </div>
+
+    </div>
+    <hr class="border-secondary my-4">
+
+    <!-- BOTTOM BAR -->
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start small text-muted">
+        © {{ now|date:"Y" }} SmartBallot. All rights reserved.
+      </div>
+
+      <div class="col-md-6 text-center text-md-end small">
+        <a href="#about" class="me-3">Privacy Policy</a>
+        <a href="#about" class="me-3">Terms</a>
+        <a href="#security">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+{#  <footer id="footer" class="footer">#}
+{##}
+{#    <div class="container footer-top">#}
+{#      <div class="row gy-4">#}
+{#        <div class="col-lg-5 col-md-12 footer-about">#}
+{#          <a href="index.html" class="logo d-flex align-items-center">#}
+{#            <span class="sitename">Strategy</span>#}
+{#          </a>#}
+{#          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>#}
+{#          <div class="social-links d-flex mt-4">#}
+{#            <a href=""><i class="bi bi-twitter-x"></i></a>#}
+{#            <a href=""><i class="bi bi-facebook"></i></a>#}
+{#            <a href=""><i class="bi bi-instagram"></i></a>#}
+{#            <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#          </div>#}
+{#        </div>#}
+{##}
+{#        <div class="col-lg-2 col-6 footer-links">#}
+{#          <h4>Useful Links</h4>#}
+{#          <ul>#}
+{#            <li><a href="#">Home</a></li>#}
+{#            <li><a href="#">About us</a></li>#}
+{#            <li><a href="#">Services</a></li>#}
+{#            <li><a href="#">Terms of service</a></li>#}
+{#            <li><a href="#">Privacy policy</a></li>#}
+{#          </ul>#}
+{#        </div>#}
+{##}
+{#        <div class="col-lg-2 col-6 footer-links">#}
+{#          <h4>Our Services</h4>#}
+{#          <ul>#}
+{#            <li><a href="#">Web Design</a></li>#}
+{#            <li><a href="#">Web Development</a></li>#}
+{#            <li><a href="#">Product Management</a></li>#}
+{#            <li><a href="#">Marketing</a></li>#}
+{#            <li><a href="#">Graphic Design</a></li>#}
+{#          </ul>#}
+{#        </div>#}
+{##}
+{#        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">#}
+{#          <h4>Contact Us</h4>#}
+{#          <p>A108 Adam Street</p>#}
+{#          <p>New York, NY 535022</p>#}
+{#          <p>United States</p>#}
+{#          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>#}
+{#          <p><strong>Email:</strong> <span>info@example.com</span></p>#}
+{#        </div>#}
+{##}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <div class="container copyright text-center mt-4">#}
+{#      <p>© <span>Copyright</span> <strong class="px-1 sitename">Strategy</strong> <span>All Rights Reserved</span></p>#}
+{#      <div class="credits">#}
+{#        <!-- All the links in the footer should remain intact. -->#}
+{#        <!-- You can delete the links only if you've purchased the pro version. -->#}
+{#        <!-- Licensing information: https://bootstrapmade.com/license/ -->#}
+{#        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->#}
+{#        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#  </footer>#}
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+{% endblock %}
+</body>
+
+</html>

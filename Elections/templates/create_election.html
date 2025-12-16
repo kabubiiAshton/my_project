@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Create Election{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-light">
+
+    <h2>Create New Election</h2>
+    <hr>
+
+    <form method="POST">
+    {% csrf_token %}
+
+    <label>Election Title</label>
+    <input type="text" name="title" class="form-control" required>
+
+    <label>Election Name</label>
+    <input type="text" name="name" class="form-control" required>
+
+    <label>Description</label>
+    <textarea name="description" class="form-control"></textarea>
+
+    <label>Start Date</label>
+    <input type="date" name="start_date" class="form-control" required>
+
+    <label>End Date</label>
+    <input type="date" name="end_date" class="form-control" required>
+
+    <label>Start Time</label>
+    <input type="datetime-local" name="start_time" class="form-control" required>
+
+    <label>End Time</label>
+    <input type="datetime-local" name="end_time" class="form-control" required>
+
+    <button type="submit" class="btn btn-primary mt-3">Create Election</button>
+</form>
+</div>
+{% endblock %}

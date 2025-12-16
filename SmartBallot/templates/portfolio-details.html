@@ -1,0 +1,351 @@
+{% extends 'base.html' %}
+{% block title %}Service Details{% endblock %}
+{% load static %}
+{% block content %}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{##}
+{#<head>#}
+{#  <meta charset="utf-8">#}
+{#  <meta content="width=device-width, initial-scale=1.0" name="viewport">#}
+{#  <title>Industries We Serve - SmartBallot</title>#}
+{#  <meta name="description" content="">#}
+{#  <meta name="keywords" content="">#}
+{##}
+{#  <!-- Favicons -->#}
+{#  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">#}
+{#  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">#}
+{##}
+{#  <!-- Fonts -->#}
+{#  <link href="https://fonts.googleapis.com" rel="preconnect">#}
+{#  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>#}
+{#  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">#}
+{##}
+{#  <!-- Vendor CSS Files -->#}
+{#  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">#}
+{#  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">#}
+{#  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">#}
+{#  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">#}
+{#  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">#}
+{##}
+{#  <!-- Main CSS File -->#}
+{#  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">#}
+
+  <!-- =======================================================
+  * Template Name: Strategy
+  * Template URL: https://bootstrapmade.com/strategy-bootstrap-agency-template/
+  * Updated: Jun 06 2025 with Bootstrap v5.3.6
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  <style>
+    body {
+      background: #07131f;
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .category-btn {
+      background: #0d1b2a;
+      border: 1px solid #24415c;
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      color: #fff;
+    }
+
+    .category-btn.active,
+    .category-btn:hover {
+      background: #f0ad36;
+      border-color: #f0ad36;
+      color: #000;
+    }
+
+    .info-box {
+      background: #0d1b2a;
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 25px;
+      display: none;
+      border: 1px solid #24415c;
+    }
+
+    .info-box.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .info-box h3 {
+      color: #f0ad36;
+      margin-bottom: 10px;
+    }
+
+    .top-title {
+      margin-top: 60px;
+      font-size: 35px;
+      font-weight: 700;
+    }
+
+  </style>
+</head>
+{#<body class="portfolio-details-page">#}
+{##}
+{#  <header id="header" class="header d-flex align-items-center fixed-top">#}
+{#    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">#}
+{##}
+{#      <a href="{% url 'index.html' %}" class="logo d-flex align-items-center me-auto me-xl-0">#}
+{#        <!-- Uncomment the line below if you also wish to use an image logo -->#}
+{#        <!-- <img src="assets/img/logo.webp" alt=""> -->#}
+{#        <h1 class="sitename">SmartBallot</h1>#}
+{#      </a>#}
+{##}
+{#      <nav id="navmenu" class="navmenu">#}
+{#        <ul>#}
+{#          <li><a href="{% url 'index.html#hero' %}" class="active">Home</a></li>#}
+{#          <li><a href="{% url 'index.html#about' %}">About Us</a></li>#}
+{#          <li class="dropdown"><a href="{% url 'index.html#services' %}"><span>Solutions</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>#}
+{#            <ul>#}
+{#                <li><a href="{% url 'service-details.html' %}">Manage Elections</a></li>#}
+{#                  <li><a href="{% url 'service-details.html' %}">Online Voting</a></li>#}
+{#                  <li><a href="{% url 'service-details.html' %}">Paper Ballot</a></li>#}
+{#                  <li><a href="{% url 'service-details.html' %}">Nominations</a></li>#}
+{#                  <li><a href="{% url 'service-details.html' %}">Telephone Voting</a></li>#}
+{#            </ul>#}
+{#          </li>#}
+{#            <li class="dropdown"><a href="#"><span>Who We Serve</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>#}
+{#            <ul>#}
+{#                <li><a href="#">Unions</a></li>#}
+{#                  <li><a href="#">Governments</a></li>#}
+{#                  <li><a href="#">Political Parties</a></li>#}
+{#                  <li><a href="#">Sports & Leisure Clubs</a></li>#}
+{#                  <li><a href="#">Corporate & Shareholders</a></li>#}
+{#                  <li><a href="#">Membership Organizations</a></li>#}
+{#                  <li><a href="#">Other Organizations</a></li>#}
+{#            </ul>#}
+{#          </li>#}
+{#          <li><a href="{% url 'index.html#pricing' %}">Pricing</a></li>#}
+{#            <li><a href="{% url 'index.html#security' %}">Security</a></li>#}
+{#            <li><a href="{% url 'index.html#contact' %}">Contact Us</a></li>#}
+{#        </ul>#}
+{#        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>#}
+{#      </nav>#}
+{##}
+{##}
+{#    </div>#}
+{#  </header>#}
+
+<div class="container text-center mt-5">
+  <h4 class="text-uppercase">Who We Serve</h4>
+  <h1 class="top-title">THE INDUSTRIES WE SERVE</h1>
+
+  <!-- CATEGORY BUTTONS -->
+  <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+    <button class="category-btn active" data-target="all"><i class="bi bi-grid-fill"></i>All Categories</button>
+    <button class="category-btn" data-target="unions"><i class="bi bi-people-fill"></i>Unions</button>
+    <button class="category-btn" data-target="governments"><i class="bi bi-building"></i>Governments</button>
+    <button class="category-btn" data-target="political"><i class="bi bi-flag-fill"></i>Political Parties</button>
+    <button class="category-btn" data-target="sports"><i class="bi bi-trophy-fill"></i>Sports & Leisure Clubs</button>
+    <button class="category-btn" data-target="corporate"><i class="bi bi-briefcase-fill"></i>Corporate & Shareholders</button>
+    <button class="category-btn" data-target="membership"><i class="bi bi-journals"></i>Membership Organizations</button>
+    <button class="category-btn" data-target="education"><i class="bi bi-mortarboard-fill"></i>Education</button>
+    <button class="category-btn" data-target="other"><i class="bi bi-people"></i>Other Organizations</button>
+  </div>
+
+  <!-- INFO BOXES FOR EACH CATEGORY -->
+  <div class="info-box active" id="all">
+    <h3 id="all categories">All Categories</h3>
+    <p>SmartBallot is used across unions, universities, corporate boards, government institutions, clubs, and organizations worldwide. Our online voting system ensures transparency, accessibility, and security for every sector.</p>
+  </div>
+
+  <div class="info-box" id="unions">
+    <h3 id="unions">Unions</h3>
+    <p>SmartBallot has become a trusted partner for unions of all sizes, helping them conduct fair and transparent elections for leadership positions, contract ratifications, strike authorizations, and policy decisions. Traditional union elections often face challenges such as low turnout, logistical costs, and long verification processes. With SmartBallot, unions benefit from a secure online system that verifies voter eligibility, prevents duplicate voting, and ensures complete confidentiality.</p>
+      <p>Union members—whether on job sites, working remotely, or on shifts—can vote anytime using their phones or computers. SmartBallot also provides automated results, reducing disputes and increasing member confidence in the union’s democratic processes. The platform has helped many unions increase participation rates by more than 60% compared to manual elections.</p>
+  </div>
+
+  <div class="info-box" id="governments">
+    <h3 id="Governments">Governments</h3>
+    <p>SmartBallot supports municipalities, local authorities, county governments, and community boards in running secure, transparent, and auditable elections. From public consultations and budgeting polls to leadership elections and policy referendums, government agencies rely on SmartBallot because of its strict compliance with security standards.</p>
+      <p>The system uses encryption, voter verification, audit logs, and tamper-proof records to ensure that every vote is legitimate. This allows governments to reduce the cost of physical voting stations while engaging a wider audience—including youth, remote citizens, and persons with disabilities. SmartBallot also offers multilingual interfaces and accessibility features to ensure no citizen is left out.</p>
+  </div>
+
+  <div class="info-box" id="political">
+    <h3 id="Political parties">Political Parties</h3>
+    <p>Political parties use SmartBallot to facilitate internal elections such as primaries, candidate nominations, policy voting, and delegate selections. Parties often face disputes and credibility issues during traditional manual elections—but SmartBallot eliminates these risks through real-time monitoring, encrypted vote storage, and voter identity verification.</p>
+      <p>Members can vote from anywhere, and party administrators can view live statistics without seeing who voted for whom. This promotes fairness while speeding up the entire process. Many political parties have adopted SmartBallot to avoid logistical delays, enhance internal trust, and provide transparent results to their stakeholders.</p>
+  </div>
+
+  <div class="info-box" id="sports">
+    <h3 id="sports">Sports & Leisure Clubs</h3>
+    <p>Sports clubs, gyms, recreation centers, and associations often conduct annual general meetings, leadership elections, and policy votes. SmartBallot makes these processes effortless, especially for clubs with busy or traveling members.</p>
+      <p>Whether it's electing a new board, approving budgets, or voting on new membership rules, SmartBallot ensures that all members can participate—even if they are at training camps, competitions, or away for travel. The platform’s simple interface allows members of all ages to vote easily, increasing participation and improving the governance of sports communities.</p>
+  </div>
+
+  <div class="info-box" id="corporate">
+    <h3 id="corporates">Corporate & Shareholders</h3>
+    <p>Shareholder voting is one of the most sensitive types of elections because decisions affect financial outcomes. SmartBallot provides a secure and transparent platform for corporate board elections, shareholder resolutions, policy approvals, and AGMs.</p>
+      <p>The system ensures each shareholder receives the correct voting weight based on their share allocation and prevents manipulation or double voting. Companies benefit from quick setup, automatic reporting, and legal-grade audit trails. SmartBallot’s remote voting option has helped corporations achieve near 100% turnout in meetings where physical attendance used to be a challenge.</p>
+  </div>
+
+  <div class="info-box" id="membership">
+    <h3 id="membership">Membership Organizations</h3>
+    <p>Associations, societies, cooperatives, alumni groups, professional bodies, and NGOs all use SmartBallot to manage their elections easily. These organizations often have large and geographically dispersed members, making physical voting costly and difficult.</p>
+      <p>SmartBallot provides a flexible solution that supports multiple ballot types, membership verification, and customized voting rules. Organizations use the system for board elections, constitutional amendments, award voting, or annual reviews. The platform helps maintain transparency, reduce administrative work, and increase member engagement.</p>
+  </div>
+  <div class="info-box" id="education">
+    <h3 id="education">Education</h3>
+    <p>Educational institutions frequently conduct elections for student councils, prefects, class representatives, club officials, and academic boards. SmartBallot enables these elections to run smoothly by eliminating paper ballots, long queues, and manual counting.</p>
+      <p>Students can vote using their phones or laptops, and administrators can verify each voter through unique codes or institution emails. SmartBallot ensures fairness, avoids vote manipulation, and delivers instant results—making it ideal for institutions with thousands of students. The platform has been successfully used in universities and colleges to conduct transparent elections that students trust.</p>
+  </div>
+
+    <div class="info-box" id="other">
+    <h3 id="others">Other Organizations</h3>
+    <p>SmartBallot is designed to work for almost any institution or community that requires secure, efficient, and transparent elections. This includes religious groups, community associations, cooperatives, Saccos, welfare groups, student organizations, and professional clubs.</p>
+        <p>Whether the election is small or large, SmartBallot adapts to unique voting rules, offers customizable ballots, and ensures all voters can participate without needing physical meetings. This flexibility has made SmartBallot a popular choice for organizations that want modern and dependable election management.</p>
+  </div>
+</div>
+  <style>
+    footer {
+  font-size: 14px;
+}
+
+.footer h4,
+.footer h6 {
+  color: #ffffff;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-links a:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+    </style>
+    <footer class="footer bg-dark text-light pt-5">
+  <div class="container">
+    <div class="row gy-4">
+
+      <!-- BRAND -->
+      <div class="col-lg-4 col-md-6">
+        <h4 class="fw-bold">SmartBallot</h4>
+        <p class="small text-muted">
+          Secure, transparent, and reliable online voting for organizations, institutions, and communities.
+        </p>
+
+        <p class="small">
+          🔒 End-to-end encrypted<br>
+          🛡 Data protection compliant<br>
+          ✅ Auditable elections
+        </p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="col-lg-2 col-md-6">
+        <h6 class="text-uppercase fw-bold mb-3">Quick Links</h6>
+        <ul class="list-unstyled footer-links">
+          <li><a href="{% url 'SmartBallot:home' %}">Home</a></li>
+          <li><a href="{% url 'SmartBallot:home' %}#about">About</a></li>
+          <li><a href="{% url 'SmartBallot:home' %}#services">Solutions</a></li>
+     <li><a href="{% url 'SmartBallot:home' %}#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- VOTERS -->
+      <div class="col-lg-3 col-md-6">
+        <h6 class="text-uppercase fw-bold mb-3">For Voters</h6>
+        <ul class="list-unstyled footer-links">
+          <li>✔ Secure login</li>
+          <li>✔ One vote per voter</li>
+          <li>✔ Anonymous ballots</li>
+          <li>✔ Real-time confirmation</li>
+        </ul>
+      </div>
+
+      <!-- ACCOUNT / ADMIN -->
+      <div class="col-lg-3 col-md-6">
+        <h6 class="text-uppercase fw-bold mb-3">Account</h6>
+     {% if user.is_authenticated %}
+          <ul class="list-unstyled footer-links">
+            <li><a href="{% url 'Election:dashboard' %}">Election Dashboard</a></li>
+            <li><a href="{% url 'Election:dashboard' %}">Manage Elections</a></li>
+            <li><a href="/accounts/logout/">Logout</a></li>
+          </ul>
+        {% else %}
+          <ul class="list-unstyled footer-links">
+            <li><a href="/accounts/login/">Login</a></li>
+            <li><a href="/accounts/register/">Register</a></li>
+          </ul>
+        {% endif %}
+      </div>
+
+    </div>
+    <hr class="border-secondary my-4">
+
+    <!-- BOTTOM BAR -->
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start small text-muted">
+        © {{ now|date:"Y" }} SmartBallot. All rights reserved.
+      </div>
+
+      <div class="col-md-6 text-center text-md-end small">
+        <a href="{% url 'SmartBallot:home' %}#about" class="me-3">Privacy Policy</a>
+        <a href="{% url 'SmartBallot:home' %}#about" class="me-3">Terms</a>
+        <a href="{% url 'SmartBallot:home' %}#security">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll(".category-btn");
+  const boxes = document.querySelectorAll(".info-box");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Remove active from all buttons
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const target = btn.getAttribute("data-target");
+
+      boxes.forEach(box => {
+        if (box.id === target || target === "all") {
+          box.classList.add("active");
+        } else {
+          box.classList.remove("active");
+        }
+      });
+    });
+  });
+</script>
+
+ <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>
+{% endblock %}

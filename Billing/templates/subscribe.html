@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Subscribe to {{ plan.name }}</h1>
+  <p>Price: ${{ plan.price }}</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm (demo)</button>
+  </form>
+{% endblock %}
