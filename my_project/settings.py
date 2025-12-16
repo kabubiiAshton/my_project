@@ -23,12 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-nm11(c!paqz3n=)w$$_ly$gt@^w=vu2buokixc1oka2559@usu'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False
+#
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['e-vote-azs9.onrender.com']
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 
 # Application definition
@@ -142,7 +145,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'SmartBallot/static']
+if (BASE_DIR / "SmartBallot/static").exists():
+    STATICFILES_DIRS = [BASE_DIR / "SmartBallot/static"]
+else:
+    STATICFILES_DIRS = []
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
