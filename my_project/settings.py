@@ -30,7 +30,9 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 #
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
-ALLOWED_HOSTS = ['e-vote-azs9.onrender.com']
+import os
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", ".onrender.com").split(",")
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 
